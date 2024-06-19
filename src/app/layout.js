@@ -1,7 +1,9 @@
 import './globals.css'
-import Link from 'next/link'
 import { roboto } from './fonts.js'
 import { inter } from './fonts.js'
+import { Logo } from '@/ui/components/Logo'
+import { Navigation } from '@/ui/components/Navigation'
+import Link from 'next/link'
 
 export const metadata = {
   title: 'Kancelaria Adwokacka',
@@ -16,7 +18,8 @@ export default function RootLayout({ children }) {
       >
         <nav
           className={
-            roboto.className + ' navbar flex flex-row items-center h-[80px] px-6 bg-primary-700'
+            roboto.className +
+            ' navbar sticky top-0 left-0  flex flex-row items-center h-[80px] px-6 bg-primary-700'
           }
         >
           <Link className="navbar-logo-anchor mr-auto" href="/">
@@ -29,23 +32,7 @@ export default function RootLayout({ children }) {
               <span className="text-xs text-secondary-200">tm</span>
             </div>
           </Link>
-          <div className="navbar-anchors">
-            <Link className="navbar-anchor" href="/kancelaria">
-              KANCELARIA
-            </Link>
-            <Link className="navbar-anchor" href="/zespol">
-              ZESPÓŁ
-            </Link>
-            <Link className="navbar-anchor" href="/zakres-uslug">
-              ZAKRES USŁUG
-            </Link>
-            <Link className="navbar-anchor" href="/publikacje">
-              PUBLIKACJE
-            </Link>
-            <Link className="navbar-anchor" href="/kontakt">
-              KONTAKT
-            </Link>
-          </div>
+          <Navigation />
         </nav>
         {children}
       </body>

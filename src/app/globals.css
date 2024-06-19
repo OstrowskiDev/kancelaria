@@ -11,6 +11,10 @@ body {
   @apply mx-2 font-semibold text-white hover:border-b-2 hover:border-white
 }
 
+.separator {
+  @apply  my-3 border-b-2 border-secondary-300;
+} 
+
 
 body {
   color: rgb(var(--foreground-rgb));
