@@ -11,15 +11,25 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pl">
-      <body className={inter.className}>
-        <nav className={roboto.className + ' navbar flex flex-row items-center h-[80px]'}>
-          <div className="navbar-logo flex flex-row items-center ml-4 mr-auto">
-            <p className="font-bold text-lg text-red-600">MARKIEWICZ</p>
-            <span className="text-xs text-red-600">&</span>
-            <p className="font-bold text-lg text-red-600">CIESIELSKA</p>
-            <span className="text-xs text-red-600">tm</span>
-          </div>
-          <div className="navbar-anchors mr-4">
+      <body
+        className={inter.className + ' main-container max-w-[1500px] mx-auto bg-background-main'}
+      >
+        <nav
+          className={
+            roboto.className + ' navbar flex flex-row items-center h-[80px] px-6 bg-primary-700'
+          }
+        >
+          <Link className="navbar-logo-anchor mr-auto" href="/">
+            <div className="navbar-logo flex flex-row items-center">
+              <div className="navbar-logo-img w-8 h-8 mr-2 border-secondary-200 border-2"></div>
+
+              <p className="font-bold text-lg text-secondary-200">MARKIEWICZ</p>
+              <span className="text-xs text-secondary-200">&</span>
+              <p className="font-bold text-lg text-secondary-200">CIESIELSKA</p>
+              <span className="text-xs text-secondary-200">tm</span>
+            </div>
+          </Link>
+          <div className="navbar-anchors">
             <Link className="navbar-anchor" href="/kancelaria">
               KANCELARIA
             </Link>
