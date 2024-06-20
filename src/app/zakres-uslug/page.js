@@ -12,7 +12,7 @@ export default function ZakresUslug() {
           {services.map((service, index) => {
             return (
               <div className="service-container" key={index}>
-                <h2 className="service-title text-3xl font-semibold text-primary-900">
+                <h2 className="service-title relative top-3 text-2xl font-semibold text-primary-900">
                   {service.title}
                 </h2>
                 <div className="separator"></div>

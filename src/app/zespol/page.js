@@ -5,11 +5,13 @@ export default function Zespol() {
   return (
     <>
       <Header title="Zespół" />
-      <div className="team-container max-w-[900px] w-full mt-6 mb-10 mx-auto">
+      <div className="team-container max-w-[900px] w-full mt-12 mb-10 mx-auto">
         {team.map((member, index) => (
           <div className="team-member-container my-4" key={index}>
             <div className="team-member-header">
-              <h2 className="team-member-name text-2xl text-primary-900">{member.name}</h2>
+              <h2 className="team-member-name text-2xl font-semibold text-primary-900">
+                {member.name}
+              </h2>
               <div className="separator relative bottom-3" />
               <h3 className="team-member-title relative bottom-6 uppercase font-semibold text-sm text-gray-700 ">
                 {member.title}

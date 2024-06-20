@@ -20,9 +20,6 @@ export function Navigation() {
 
   return (
     <div className="navbar-anchors">
-      <Link className={`navbar-anchor ${changeActiveClass('/kancelaria')}`} href="/kancelaria">
-        KANCELARIA
-      </Link>
       <Link className={`navbar-anchor ${changeActiveClass('/zespol')}`} href="/zespol">
         ZESPÓŁ
       </Link>
@@ -31,6 +28,9 @@ export function Navigation() {
       </Link>
       <Link className={`navbar-anchor ${changeActiveClass('/publikacje')}`} href="/publikacje">
         PUBLIKACJE
+      </Link>
+      <Link className={`navbar-anchor ${changeActiveClass('/kancelaria')}`} href="/kancelaria">
+        KANCELARIA
       </Link>
       <Link className={`navbar-anchor ${changeActiveClass('/kontakt')}`} href="/kontakt">
         KONTAKT
