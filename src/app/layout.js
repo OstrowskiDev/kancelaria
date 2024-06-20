@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <nav
           className={
             roboto.className +
-            ' navbar sticky top-0 left-0 flex flex-row items-center h-[80px] px-6 bg-primary-700'
+            ' navbar sticky top-0 left-0 z-10 flex flex-row items-center h-[80px] px-6 bg-primary-700'
           }
         >
           <div className="navbar-content flex flex-row items-center w-full max-w-[1500px] mx-auto">

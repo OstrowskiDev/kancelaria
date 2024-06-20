@@ -39,4 +39,9 @@ export const home = {
       },
     ],
   },
+  team: {
+    title: 'zespół',
+    content:
+      'Opis zespołu. Szczegółowy opis zespołu znajduje się na /zespol więc tutaj coś bardziej ogólnego i zachęcającego do współpracy. <br /><br /> Sed eos amet diam stet diam eos et voluptua voluptua lorem, lorem amet dolor et amet sadipscing diam et ipsum kasd. Tempor ut eirmod accusam gubergren at. Clita sit dolor sit gubergren. Ut et at takimata et takimata. Est justo labore aliquyam sanctus dolor lorem. Eos ut ut diam voluptua nonumy. Rebum sit invidunt duo eirmod. <br /><br /> Diam est dolor ut tempor et clita diam et, diam tempor ea sit lorem, et no sea voluptua ipsum sadipscing elitr et eirmod ipsum, accusam et magna dolor diam sed, sanctus at consetetur duo dolore eos consetetur amet ipsum lorem, dolores lorem et consetetur sit voluptua amet amet sanctus. Kasd et sea ipsum justo justo erat magna, no et no ipsum rebum kasd est. <br /><br /> Lorem takimata kasd dolor amet, et accusam dolores sea amet amet eos sit. Ea vero amet dolor eirmod clita dolore.',
+  },
 }

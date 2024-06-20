@@ -6,9 +6,12 @@ import EnterIco from '@/ui/icons/EnterIco'
 export default function Home() {
   return (
     <div className="home-main-container">
+      {/* header */}
       <HeaderMain
         title={`"Nazwa i logo kancelarii. Zdjęcie w tle do zmiany na lepsze. Wysokość zdjęcia/tła zawsze dopasowana tak by zajmować 100% wysokości ekranu urządzenia."`}
       />
+
+      {/* introduction */}
       <div className="introduction-container max-w-[900px] mt-8 mb-16 mx-auto">
         <h2 className="introduction-title relative top-3 uppercase text-primary-900 font-semibold text-2xl">
           {home.introduction.title}
@@ -22,12 +25,13 @@ export default function Home() {
           <div className="introduction-image w-1/2 h-[600px] mt-1 border border-secondary-200 shrink-0"></div>
         </div>
       </div>
+
+      {/* services */}
       <div className="services-wrapper pt-8 pb-16 w-full bg-primary-700">
         <div className="services-container max-w-[900px] mx-auto">
           <h2 className="services-title my-6 uppercase text-white font-semibold text-2xl">
             {home.services.title}
           </h2>
-          {/* <div className="separator"></div> */}
           <div className="services-list grid grid-cols-3 gap-12">
             {home.services.services.map((service, index) => {
               return (
@@ -45,7 +49,7 @@ export default function Home() {
                     </p>
                     <Link
                       className="service-link absolute left-4 bottom-3 flex flex-row items-center "
-                      href="/kontakt"
+                      href="/zakres-uslug"
                     >
                       <p className="link-text mr-2 text-white  hover:text-secondary-300 border-b-2 border-primary-600 hover:border-secondary-200">
                         więcej informacji
@@ -57,6 +61,21 @@ export default function Home() {
               )
             })}
           </div>
+        </div>
+      </div>
+
+      {/* about team */}
+      <div className="team-container max-w-[900px] mt-8 mb-16 mx-auto">
+        <h2 className="team-title relative top-3 uppercase text-primary-900 font-semibold text-2xl">
+          {home.team.title}
+        </h2>
+        <div className="separator"></div>
+        <div className="team-content flex flex-row">
+          <p
+            className="team-text text-primary-700 text-justify mr-8"
+            dangerouslySetInnerHTML={{ __html: home.team.content }}
+          ></p>
+          <div className="team-image w-1/2 h-[600px] mt-1 border border-secondary-200 shrink-0"></div>
         </div>
       </div>
     </div>
