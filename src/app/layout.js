@@ -24,7 +24,10 @@ export default function RootLayout({ children }) {
             <Navigation />
           </div>
         </nav>
-        {children}
+        <main className="main-content flex flex-col">
+          {children}
+          <footer className="footer h-[60px] bg-primary-700"></footer>
+        </main>
       </body>
     </html>
   )

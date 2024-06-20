@@ -1,13 +1,14 @@
 import Link from 'next/link'
 import { services } from '@/mock-data/services'
 import { Header } from '@/ui/components/Header'
+import EnterIco from '@/ui/icons/EnterIco'
 
 export default function ZakresUslug() {
   return (
     <>
       <Header title="Zakres usług" />
       <div className="services max-w-[640px] mx-auto mt-4">
-        <div className="services-list my-20">
+        <div className="services-list my-10">
           {services.map((service, index) => {
             return (
               <div className="service-container mt-10" key={index}>
@@ -19,8 +20,11 @@ export default function ZakresUslug() {
                   {service.subtitle}
                 </h3>
                 <p className="service-description text-primary-700 my-2">{service.description}</p>
-                <Link className="contact-us" href="/kontakt">
-                  zapraszamy do kontaktu
+                <Link className="contact-us flex flex-row items-center" href="/kontakt">
+                  <p className="contact-us-text mr-2 uppercase font-semibold text-primary-400 hover:text-primary-600 border-b-2 border-background-main hover:border-secondary-200 ">
+                    zapraszamy do kontaktu
+                  </p>
+                  <EnterIco />
                 </Link>
               </div>
             )

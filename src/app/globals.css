@@ -8,7 +8,7 @@ body {
 }
 
 .navbar-anchor {
-  @apply mx-2 font-semibold text-white hover:border-b-2 hover:border-white
+  @apply mx-2 font-semibold
 }
 
 .separator {
