@@ -1,7 +1,7 @@
 export default function EnterIco() {
   return (
     <svg
-      className="enter-ico"
+      className="enter-icon"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       style={{ fill: '#CCB083', width: '20px', height: '20px' }}

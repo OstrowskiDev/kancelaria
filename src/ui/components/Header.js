@@ -9,7 +9,7 @@ export function Header({ title }) {
         width: '100%',
       }}
     >
-      <div className="w-full max-w-[640px] overflow-hidden">
+      <div className="w-full max-w-[900px] overflow-hidden">
         <h1 className="uppercase text-5xl font-bold text-white tracking-wider">{title}</h1>
       </div>
     </div>
