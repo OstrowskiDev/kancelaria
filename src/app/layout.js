@@ -3,6 +3,7 @@ import { roboto } from './fonts.js'
 import { inter } from './fonts.js'
 import { Logo } from '@/ui/components/Logo'
 import { Navigation } from '@/ui/components/Navigation'
+import Footer from '@/ui/components/Footer'
 
 export const metadata = {
   title: 'Kancelaria Adwokacka',
@@ -26,7 +27,7 @@ export default function RootLayout({ children }) {
         </nav>
         <main className="main-content flex flex-col">
           {children}
-          <footer className="footer h-[60px] bg-primary-700"></footer>
+          <Footer />
         </main>
       </body>
     </html>
