@@ -1,6 +1,9 @@
 'use client'
 
 import { Header } from '@/ui/components/Header'
+import AddressIco from '@/ui/icons/AddressIco'
+import EmailIco from '@/ui/icons/EmailIco'
+import PhoneIco from '@/ui/icons/PhoneIco'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -33,18 +36,24 @@ export default function Kontakt() {
           {/* contact data */}
           <div className="contact-data-container pl-12 min-w-[240px]">
             <div className="contact-address-container mt-3">
-              <div className="contact-address-icon relative top-6 right-9 w-6 h-6 border border-secondary-300 rounded-full"></div>
+              <div className="contact-address-icon relative top-6 right-9 w-6 h-6">
+                <AddressIco />
+              </div>
               <h2 className="contact-address-label uppercase font-semibold text-white">Adres:</h2>
               <p className="contact-text text-white text-sm">ul. Kancelarii 5/8</p>
               <p className="contact-text text-white text-sm">62-200, Gniezno</p>
             </div>
             <div className="contact-email-container mt-3">
-              <div className="contact-email-icon relative top-6 right-9 w-6 h-6 border border-secondary-300 rounded-full"></div>
+              <div className="contact-email-icon relative top-6 right-9 w-6 h-6 ">
+                <EmailIco />
+              </div>
               <h2 className="contact-email-label uppercase font-semibold text-sm text-white">Email:</h2>
               <p className="contact-text text-white text-sm">kancelaria@example.com</p>
             </div>
             <div className="contact-phone-container mt-3">
-              <div className="contact-phone-icon relative top-6 right-9 w-6 h-6 border border-secondary-300 rounded-full"></div>
+              <div className="contact-phone-icon relative top-6 right-9 w-6 h-6 ">
+                <PhoneIco />
+              </div>
               <h2 className="contact-phone-label uppercase font-semibold text-sm text-white">Tel./Fax:</h2>
               <p className="contact-text text-white text-sm">kancelaria@example.com</p>
             </div>
@@ -63,12 +72,12 @@ export default function Kontakt() {
 
             <div className="contact-accept-rodo flex flex-row mt-3">
               <input className="accept-rodo-checkbox w-[18px]" type="checkbox" name="agree" value="yes" checked={isRodoAccepted} onChange={onCheckboxChange} />
-              <label className="accept-rodo-text ml-4 text-white font-thin" htmlFor="agree">
+              <label className="accept-rodo-text ml-3 text-white font-thin" htmlFor="agree">
                 Akceptuję
-                <Link className="link font-normal ml-1" href={'polityka-prywantosci'} target="_blank" rel="noopener noreferrer">
-                  Plitykę Prywantości
+                <Link className="link font-normal hover:text-secondary-200" href={'polityka-prywantosci'} target="_blank" rel="noopener noreferrer">
+                  {' Plitykę Prywantości'}
                 </Link>{' '}
-                - zasady przetwarzania danych osobowych RODO.
+                i zasady przetwarzania danych osobowych RODO.
               </label>
             </div>
 
