@@ -7,7 +7,6 @@ export function Navigation() {
   const path = usePathname()
 
   function isActive(href) {
-    console.log(path)
     return path === href
   }
   function changeActiveClass(href) {
