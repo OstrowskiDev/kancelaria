@@ -1,14 +1,14 @@
 export const kancelaria = {
   topic1: {
-    title: 'topic no1',
+    title: 'Topic No.1',
     content: `Diam kasd magna ipsum et nonumy stet ipsum, aliquyam ea sadipscing ipsum clita duo, no dolor eos justo eirmod consetetur et lorem, est sadipscing ipsum eos invidunt diam dolor sea. <br><br> Diam diam eos amet clita labore takimata sadipscing sea ipsum, sanctus dolor vero et stet, dolor rebum nonumy accusam diam sadipscing, et voluptua voluptua magna ipsum invidunt ipsum et at, accusam justo erat et nonumy magna amet. Sed erat sed dolore sit invidunt. Vero diam sed clita lorem, justo at no sed et lorem amet sed sea accusam, et et sadipscing ipsum no accusam dolor, eirmod kasd rebum et dolor ipsum sea, labore amet elitr et amet kasd ipsum labore vero ea. Lorem rebum dolor dolore sit est dolor stet et. Takimata dolores magna eirmod accusam, at lorem sit ipsum et clita justo. Clita clita amet consetetur vero no est sed diam magna. <br><br> Elitr ipsum dolor sadipscing amet sea voluptua. Et no gubergren ipsum duo gubergren, diam sit et stet magna sea sit takimata diam. Erat justo sit invidunt sit dolor erat consetetur sed invidunt, invidunt dolore no voluptua invidunt.`,
   },
   topic2: {
-    title: 'topic no2',
+    title: 'Topic No.2',
     content: `Et gubergren consetetur sadipscing diam est dolore gubergren, et amet lorem sed sed ipsum lorem sit. Sit sea amet ea aliquyam takimata, lorem tempor justo et kasd et, lorem sadipscing accusam ipsum aliquyam dolores invidunt voluptua sanctus. <br><br> Rebum amet accusam lorem eirmod eirmod sadipscing lorem nonumy erat, amet takimata accusam dolores consetetur gubergren dolor gubergren duo ut, takimata sea elitr erat accusam. Amet kasd rebum stet sit ipsum eos ipsum, gubergren duo diam sanctus diam at, et et stet tempor gubergren et. Invidunt rebum duo clita voluptua dolores dolore sanctus. Eirmod gubergren sanctus voluptua tempor. Amet accusam dolores justo duo voluptua dolor, sadipscing ipsum et rebum diam, dolore lorem dolor no erat labore consetetur aliquyam sit sed. <br><br> Ea lorem magna kasd magna, aliquyam sadipscing at takimata dolore sed amet magna takimata, lorem sit ea duo est amet et clita, nonumy.`,
   },
   topic3: {
-    title: 'topic no3',
+    title: 'Topic No.3',
     content: `Erat stet rebum eos clita eirmod magna sed ut dolores justo, duo amet sit diam gubergren vero aliquyam dolor lorem. Dolore aliquyam amet no dolores at ipsum. Ut amet erat ut dolores sed at nonumy diam eirmod. Nonumy amet et takimata dolores nonumy dolore justo amet dolor. Gubergren ipsum no erat rebum sanctus. <br><br> Accusam sanctus et ipsum clita nonumy aliquyam dolor dolor lorem. Consetetur tempor amet sea sed takimata eirmod. Dolor rebum labore nonumy et stet nonumy, lorem tempor elitr et eirmod gubergren et accusam. Gubergren lorem ut et diam, dolores et elitr clita et voluptua, labore kasd est et ut rebum labore ut et. No invidunt et justo sea clita, dolor stet sit ipsum amet. Et duo ea rebum voluptua invidunt eos diam. Aliquyam no sea gubergren elitr amet dolores diam erat. Magna labore duo aliquyam clita voluptua, elitr eirmod et sed eirmod sanctus, et elitr duo et ipsum amet sanctus. <br><br> Eos aliquyam lorem sea invidunt erat gubergren rebum, vero duo aliquyam accusam ut tempor at sed amet kasd. Et et sanctus et ea sea kasd et amet et. Lorem lorem rebum sanctus dolor magna at, ea ea accusam vero sed est duo elitr et. Tempor dolor vero et.`,
   },
 }
