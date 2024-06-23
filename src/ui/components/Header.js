@@ -10,7 +10,7 @@ export function Header({ title }) {
       }}
     >
       <div className="w-full max-w-[900px] overflow-hidden">
-        <h1 className="uppercase text-5xl font-bold text-white tracking-wider">{title}</h1>
+        <h1 className="uppercase text-5xl p-[6px] font-semibold text-white tracking-wider">{title}</h1>
       </div>
     </div>
   )

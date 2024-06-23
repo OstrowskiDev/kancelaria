@@ -2,13 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* fonts */
+
+.navbar-anchor {
+  font-family: var(--font-roboto);
+}
+
+h1 {
+  font-family: var(--font-playfairDisplay);
+}
+
+h2 {
+  font-family: var(--font-playfairDisplay);
+}
+
+h3 {
+  font-family: var(--font-playfairDisplay);
+}
+
+p, span {
+  font-family: var(--font-roboto);
+}
+
+footer,
+footer a,
+footer p {
+  font-family: var(--font-playfairDisplay)
+}
+
+
+/* global */
 
 body {
   @apply overflow-y-scroll;
 }
 
 .navbar-anchor {
-  @apply mx-2 font-semibold
+  @apply mx-2 font-bold;
 }
 
 .separator {
