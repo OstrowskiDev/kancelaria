@@ -61,7 +61,7 @@ export default function Kontakt() {
 
           {/* contact form */}
           <form className="contact-from-container flex flex-col min-w-[240px] w-full max-w-[680px] px-4 mt-8 mb-4 mx-auto">
-            <h2 className="contact-form-label p-1 mb-1 uppercase text-white font-semibold text-xl">formularz kontaktowy</h2>
+            <h2 className="contact-form-label p-1 mb-1 uppercase tracking-wide text-white font-semibold text-xl">{"formularz  kontaktowy"}</h2>
 
             <div className="contact-form-user-data grid grid-cols-1 md:grid-cols-2 gap-3 mb-3 ">
               <input className="contact-input-name p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md" type="text" name="name" placeholder="Imię i nazwisko *" onChange={onInputChange} required />

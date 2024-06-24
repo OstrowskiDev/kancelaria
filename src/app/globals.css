@@ -30,6 +30,10 @@ footer p {
   font-family: var(--font-playfairDisplay)
 }
 
+.font-custom-serif {
+  font-family: var(--font-playfairDisplay);
+}
+
 
 /* global */
 
@@ -44,6 +48,10 @@ body {
 .separator {
   @apply  my-3 border-b-2 border-secondary-300;
 } 
+
+.contact-form-label {
+  word-spacing: 3px
+}
 
 .article-content {
   display: -webkit-box;

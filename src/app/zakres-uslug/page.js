@@ -16,15 +16,12 @@ export default function ZakresUslug() {
                   {service.title}
                 </h2>
                 <div className="separator"></div>
-                <h3 className="service-subtitle my-3 font-semibold text-primary-800 text-justify">
-                  {service.subtitle}
-                </h3>
                 <p className="service-description text-primary-700 my-2 text-justify">
                   {service.description}
                 </p>
                 <Link className="contact-us flex flex-row items-center" href="/kontakt">
-                  <p className="contact-us-text mr-2 uppercase font-semibold text-gray-500 hover:text-primary-600 border-b-2 border-background-main hover:border-secondary-200 ">
-                    zapraszamy do kontaktu
+                  <p className="contact-us-text mr-2 font-custom-serif font-semibold tracking-wide text-gray-500 hover:text-primary-600 border-b-2 border-background-main hover:border-secondary-200 ">
+                    Zapraszamy do kontaktu
                   </p>
                   <EnterIco />
                 </Link>

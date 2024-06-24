@@ -9,16 +9,12 @@ export const metadata = {
   description: 'Kancelaria Adwokacka Katarzyny Markiewicz i Judyty Ciesielskiej',
 }
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '500', '700'], variable: '--font-roboto', display: 'swap' })
 const playfairDisplay = Playfair_Display({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800', '900'], variable: '--font-playfairDisplay', display: 'swap' })
-const lora = Lora({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-lora', display: 'swap'})
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700', '800'], variable: '--font-montserrat', display: 'swap'})
-
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pl" className={`${roboto.variable} ${lora.variable} ${playfairDisplay.variable} ${inter.variable} ${montserrat.variable}`}>
+    <html lang="pl" className={`${roboto.variable} ${playfairDisplay.variable}`}>
       <body className='main-container bg-background-main'>
         <nav
           className='navbar sticky top-0 left-0 z-10 flex flex-row items-center h-[80px] px-6 bg-primary-700'

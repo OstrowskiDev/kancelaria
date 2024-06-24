@@ -39,10 +39,10 @@ export default function Publikacje() {
                     href="/kontakt"
                   >
                     <p
-                      className="article-link-text mr-2 uppercase font-semibold text-gray-700 hover:text-primary-500 border-b-2 border-background-main hover:border-secondary-200"
+                      className="article-link-text mr-2 font-semibold font-custom-serif tracking-wide text-gray-500 hover:text-primary-500 border-b-2 border-background-main hover:border-secondary-200"
                       style={{ fontSize: '0.95rem' }}
                     >
-                      przeczytaj całość
+                      Przeczytaj całość
                     </p>
                     <EnterIco />
                   </Link>

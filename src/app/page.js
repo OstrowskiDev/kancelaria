@@ -36,7 +36,7 @@ export default function Home() {
             {home.services.services.map((service, index) => {
               return (
                 <div className="service-main-container w-[240px]" key={index}>
-                  <h3 className="service-title mt-2 uppercase text-xl font-semibold text-white text-center">
+                  <h3 className="service-title my-2 uppercase text-xl font-semibold text-white text-center">
                     {service.title}
                   </h3>
                   <div
@@ -51,7 +51,7 @@ export default function Home() {
                       className="service-link absolute left-4 bottom-3 flex flex-row items-center "
                       href="/zakres-uslug"
                     >
-                      <p className="link-text mr-2 text-white  hover:text-secondary-300 border-b-2 border-primary-600 hover:border-secondary-200">
+                      <p className="link-text mr-2 font-custom-serif text-white  hover:text-secondary-300 border-b-2 border-primary-600 hover:border-secondary-200">
                         więcej informacji
                       </p>
                       <EnterIco />
