@@ -111,7 +111,7 @@ export default function Kontakt() {
           <h2 className="contact-form-label p-1 mb-1 uppercase tracking-wide text-white font-semibold text-xl">{"formularz kontaktowy"}</h2>
 
             <div className='captcha-awesomeness-handler 
-            form-inputs-container p-2 border border-gray-700 rounded-md' style={{backgroundColor: 'rgb(34, 34, 34)'}} >
+            form-inputs-container p-2 bg-primary-700 border border-gray-700 rounded-md' >
             <div className="contact-form-user-data grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
               <input className="contact-input-fullName p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md" type="text" name="fullName" placeholder="Imię i nazwisko *" onChange={onInputChange} required />
               <input className="contact-input-email p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md" type="text" name="email" placeholder="Email *" onChange={onInputChange} required />
@@ -124,19 +124,19 @@ export default function Kontakt() {
 
             <textarea className="contact-input-content w-full h-48 p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md" type="text" name="content" placeholder="Wiadomość *" onChange={onInputChange} required />
 
-            <div className='contact-checkboxes-container flex flex-row justify-between'>
-            <div className="contact-accept-rodo flex flex-row items-center h-[76px] p-2 mr-3 border rounded-sm" style={{ borderColor: 'rgb(82, 82, 82)'}} >
-              <input className="accept-rodo-checkbox w-[18px] ml-2 scale-150" type="checkbox" name="acceptRodo" value="yes" checked={isRodoAccepted} onChange={onCheckboxChange} />
-              <label className="accept-rodo-text ml-5 text-white font-thin leading-tight" htmlFor="acceptRodo">
-                Akceptuję
-                <Link className="link font-normal hover:text-secondary-200" href={'polityka-prywatnosci'} target="_blank" rel="noopener noreferrer">
-                  {' Plitykę Prywantości'}
+            <div className='contact-checkboxes-container flex flex-row justify-between mt-2'>
+            <div className="contact-accept-rodo flex flex-row items-center h-[76px] p-2 mr-4 bg-white border rounded-md" style={{ borderColor: 'rgb(82, 82, 82)'}} >
+              <input className="accept-rodo-checkbox w-[18px] ml-3 scale-150" type="checkbox" name="acceptRodo" value="yes" checked={isRodoAccepted} onChange={onCheckboxChange} />
+              <label className="accept-rodo-text ml-5 text-primary-800 leading-tight" htmlFor="acceptRodo">
+                {`Akceptuję `}
+                <Link className="link font-medium hover:text-primary-900 hover:border-b-2 hover:border-gray-600 " href={'polityka-prywatnosci'} target="_blank" rel="noopener noreferrer">
+                  {'Plitykę Prywantości'}
                 </Link>{' '}
                 i zasady przetwarzania danych osobowych RODO.
               </label>
             </div>
             
-            <div className="g-recaptcha" data-sitekey={process.env.RECAPTCHA_SITE_KEY} data-theme="dark"></div>
+            <div className="g-recaptcha" data-sitekey={process.env.RECAPTCHA_SITE_KEY} data-theme="light"></div>
             </div>
             </div>
 
