@@ -78,7 +78,7 @@ export default function Kontakt() {
       <Script src="https://www.google.com/recaptcha/api.js" async defer />
 
       <Header title="Kontakt" />
-      <div className="contact-wrapper bg-primary-800" style={{ minHeight: 'calc(100vh - 380px)', backgroundColor: 'rgb (34 34 34)' }}>
+      <div className="contact-wrapper bg-primary-800" style={{ minHeight: 'calc(100vh - 380px)'}}>
         <div className="contact-container flex flex-row max-w-[900px] mx-auto mt-8 mb-16 ">
           {/* contact data */}
           <div className="contact-data-container pl-12 mt-12 min-w-[240px]">
@@ -108,9 +108,11 @@ export default function Kontakt() {
 
           {/* contact form */}
           <form className="contact-from-container flex flex-col min-w-[240px] w-full max-w-[680px] px-4 mt-8 mb-4 mx-auto">
-            <h2 className="contact-form-label p-1 mb-1 uppercase tracking-wide text-white font-semibold text-xl">{"formularz kontaktowy"}</h2>
+          <h2 className="contact-form-label p-1 mb-1 uppercase tracking-wide text-white font-semibold text-xl">{"formularz kontaktowy"}</h2>
 
-            <div className="contact-form-user-data grid grid-cols-1 md:grid-cols-2 gap-3 mb-3 ">
+            <div className='captcha-awesomeness-handler 
+            form-inputs-container p-2 border border-gray-700 rounded-md' style={{backgroundColor: 'rgb(34, 34, 34)'}} >
+            <div className="contact-form-user-data grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
               <input className="contact-input-fullName p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md" type="text" name="fullName" placeholder="Imię i nazwisko *" onChange={onInputChange} required />
               <input className="contact-input-email p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md" type="text" name="email" placeholder="Email *" onChange={onInputChange} required />
               <input className="contact-input-phone p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md" type="text" name="phone" placeholder="Telefon *" onChange={onInputChange} required />
@@ -120,13 +122,12 @@ export default function Kontakt() {
               <input type="hidden" id="jsEnabled" name='jsEnabled' value="no" />
             </div>
 
-            <textarea className="contact-input-content h-48 p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md" type="text" name="content" placeholder="Wiadomość *" onChange={onInputChange} required />
+            <textarea className="contact-input-content w-full h-48 p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md" type="text" name="content" placeholder="Wiadomość *" onChange={onInputChange} required />
 
-
-            <div className='oh-boy flex flex-row justify-between mt-6'>
-            <div className="contact-accept-rodo flex flex-row mt-3">
-              <input className="accept-rodo-checkbox w-[18px]" type="checkbox" name="acceptRodo" value="yes" checked={isRodoAccepted} onChange={onCheckboxChange} />
-              <label className="accept-rodo-text ml-3 text-white font-thin" htmlFor="acceptRodo">
+            <div className='contact-checkboxes-container flex flex-row justify-between'>
+            <div className="contact-accept-rodo flex flex-row items-center h-[76px] p-2 mr-3 border rounded-sm" style={{ borderColor: 'rgb(82, 82, 82)'}} >
+              <input className="accept-rodo-checkbox w-[18px] ml-2 scale-150" type="checkbox" name="acceptRodo" value="yes" checked={isRodoAccepted} onChange={onCheckboxChange} />
+              <label className="accept-rodo-text ml-5 text-white font-thin leading-tight" htmlFor="acceptRodo">
                 Akceptuję
                 <Link className="link font-normal hover:text-secondary-200" href={'polityka-prywatnosci'} target="_blank" rel="noopener noreferrer">
                   {' Plitykę Prywantości'}
@@ -136,7 +137,7 @@ export default function Kontakt() {
             </div>
             
             <div className="g-recaptcha" data-sitekey={process.env.RECAPTCHA_SITE_KEY} data-theme="dark"></div>
-
+            </div>
             </div>
 
             <button className="contact-button w-[160px] h-[38px] mt-3 ml-auto px-6 py-1 text-secondary-200 uppercase font-semibold border border-secondary-200 rounded-lg bg-primary-600 hover:bg-primary-500 hover:border-2" type="submit" onSubmit={onSubmit}>
