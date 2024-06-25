@@ -1,1 +1,2 @@
-Playfair Display czcionka
+- dodać aktualności do strony głównej, jako publikacje
+- dodać opcjonalny tekst o urlopach do strony kontaktowej nad formularzem kontaktowym
