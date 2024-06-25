@@ -4,7 +4,8 @@
 
 /* fonts */
 
-.navbar-anchor {
+.navbar-anchor,
+.accept-rodo-text {
   font-family: var(--font-roboto);
 }
 
@@ -74,5 +75,63 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* checkmark */
+.checkmark-container{
+  position: relative;
+  width: 28px;
+  height: 40px;
+  overflow: hidden;
+  display: inline-block;
+  animation: drawCheckmark 0.7s forwards;
+  transform-origin: left;
+}
+
+.checkmark-green-animated {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 12px;
+  border-bottom: 4px solid #049f57;
+  border-left: 4px solid #049f57;
+  top: 16px;
+  left: 10px;
+  transform: rotate(-45deg);
+  transform-origin: bottom left;
+  box-shadow: inset 1px 1px 1px white;
+}
+
+.checkmark-green-animated::after {
+  content: '';
+  position: absolute;
+  top: 0px; 
+  left: -4px;
+  right: 0px;
+  bottom: -4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  z-index: 1;
+}
+
+.checkmark-green-animated::before {
+  content: '';
+  position: absolute;
+  top: 0px; 
+  left: -1px;
+  right: 0px;
+  bottom: -1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  z-index: 1;
+}
+
+@keyframes drawCheckmark {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
   }
 }

@@ -1,9 +1,11 @@
 'use client'
 
+import Checkmark from '@/ui/components/Checkmark'
 import { Header } from '@/ui/components/Header'
 import AddressIco from '@/ui/icons/AddressIco'
 import EmailIco from '@/ui/icons/EmailIco'
 import PhoneIco from '@/ui/icons/PhoneIco'
+import RulesIco from '@/ui/icons/RulesIco'
 import Link from 'next/link'
 import Script from 'next/script'
 import { useEffect, useState } from 'react'
@@ -78,7 +80,7 @@ export default function Kontakt() {
       <Script src="https://www.google.com/recaptcha/api.js" async defer />
 
       <Header title="Kontakt" />
-      <div className="contact-wrapper bg-primary-800" style={{ minHeight: 'calc(100vh - 380px)'}}>
+      <div className="contact-wrapper bg-primary-700" style={{ minHeight: 'calc(100vh - 380px)'}}>
         <div className="contact-container flex flex-row max-w-[900px] mx-auto mt-8 mb-16 ">
           {/* contact data */}
           <div className="contact-data-container pl-12 mt-12 min-w-[240px]">
@@ -111,7 +113,7 @@ export default function Kontakt() {
           <h2 className="contact-form-label p-1 mb-1 uppercase tracking-wide text-white font-semibold text-xl">{"formularz kontaktowy"}</h2>
 
             <div className='captcha-awesomeness-handler 
-            form-inputs-container p-2 bg-primary-700 border border-gray-700 rounded-md' >
+            form-inputs-container' >
             <div className="contact-form-user-data grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
               <input className="contact-input-fullName p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md" type="text" name="fullName" placeholder="Imię i nazwisko *" onChange={onInputChange} required />
               <input className="contact-input-email p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md" type="text" name="email" placeholder="Email *" onChange={onInputChange} required />
@@ -125,15 +127,18 @@ export default function Kontakt() {
             <textarea className="contact-input-content w-full h-48 p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md" type="text" name="content" placeholder="Wiadomość *" onChange={onInputChange} required />
 
             <div className='contact-checkboxes-container flex flex-row justify-between mt-2'>
-            <div className="contact-accept-rodo flex flex-row items-center h-[76px] p-2 mr-4 bg-white border rounded-md" style={{ borderColor: 'rgb(82, 82, 82)'}} >
-              <input className="accept-rodo-checkbox w-[18px] ml-3 scale-150" type="checkbox" name="acceptRodo" value="yes" checked={isRodoAccepted} onChange={onCheckboxChange} />
-              <label className="accept-rodo-text ml-5 text-primary-800 leading-tight" htmlFor="acceptRodo">
+            <div className="contact-accept-rodo flex flex-row items-center h-[76px] p-2 mr-4 bg-white border rounded-[4px]" style={{ borderColor: 'rgb(82, 82, 82)'}} >
+              <Checkmark setFormData={setFormData} formData={formData} />
+              <label className="accept-rodo-text max-w-[192px] ml-3 text-sm text-primary-800 leading-tight" htmlFor="acceptRodo">
                 {`Akceptuję `}
                 <Link className="link font-medium hover:text-primary-900 hover:border-b-2 hover:border-gray-600 " href={'polityka-prywatnosci'} target="_blank" rel="noopener noreferrer">
                   {'Plitykę Prywantości'}
                 </Link>{' '}
                 i zasady przetwarzania danych osobowych RODO.
               </label>
+              <div className='contact-rodo-icon w-[40px] h-[40px] ml-2'>
+              <RulesIco />
+              </div>
             </div>
             
             <div className="g-recaptcha" data-sitekey={process.env.RECAPTCHA_SITE_KEY} data-theme="light"></div>
