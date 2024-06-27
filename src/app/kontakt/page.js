@@ -3,9 +3,7 @@
 import { rodo } from '@/mock-data/rodo'
 import Checkmark from '@/ui/components/Checkmark'
 import { Header } from '@/ui/components/Header'
-import AddressIco from '@/ui/icons/AddressIco'
-import EmailIco from '@/ui/icons/EmailIco'
-import PhoneIco from '@/ui/icons/PhoneIco'
+import KontaktData from '@/ui/components/KontaktData'
 import RulesIco from '@/ui/icons/RulesIco'
 import Link from 'next/link'
 import Script from 'next/script'
@@ -13,7 +11,8 @@ import { useEffect, useState } from 'react'
 import validator from 'validator'
 
 export default function Kontakt() {
-  const [submitAttempted, setSubmitAttempted] = useState(false);
+  const [submitAttempted, setSubmitAttempted] = useState(false)
+  const [isRodoAccepted, setIsRodoAccepted] = useState(false)
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -22,8 +21,7 @@ export default function Kontakt() {
     content: '',
     name: '',
   })
-  const [isRodoAccepted, setIsRodoAccepted] = useState(false)
-  const [fieldValidity, setFieldValidity] = useState({
+  const validationObject = {
     fullName: { message: []},
     email: { message: []},
     phone: { message: []},
@@ -32,8 +30,9 @@ export default function Kontakt() {
     acceptRodo: { message: []},
     jsEnabled: { message: []},
     name: { message: []}
-    // need validation for reCAPTCHA v2
-  })
+  }
+  const [fieldValidity, setFieldValidity] = useState(validationObject)
+  // need validation for reCAPTCHA v2
 
   useEffect(() => {
     setFormData({ ...formData, jsEnabled: "yes"})
@@ -57,70 +56,15 @@ export default function Kontakt() {
 
   function validateForm() {
     const { fullName, email, phone, topic, content, acceptRodo, name, jsEnabled } = formData
-    const validationResults = {
-      fullName: { message: []},
-      email: { message: []},
-      phone: { message: []},
-      topic: { message: []},
-      content: { message: []},
-      acceptRodo: { message: []},
-      jsEnabled: { message: []},
-      name: { message: []}
-    }
+    const validationResults = { ...validationObject}
 
     function addMessage(field, messageText) {
-      console.log("adding message", field, messageText)
-      setFieldValidity(prevState => {
-        // Ensure the field exists in the state, if not, initialize it
-        const fieldState = prevState[field] || { message: ['fieldState not found'] };
-        // Ensure the message array exists, if not, initialize it and then append the new message
-        const updatedMessages = [...(fieldState.message || ['fieldState not found3']), messageText];
-          
-        // Compute the new state
-        const newState = {
-          ...prevState,
-          [field]: {
-            ...fieldState,
-          message: updatedMessages},
-
-        };
-        // Log the new state if necessary
-        console.log("new state", newState)
-        return newState;
-      });
-
-
-      // // console.log("adding message", field, messageText)
-      // // setFieldValidity(prevState => ({
-      // //   ...prevState,
-      // //   [field]: {
-      // //     ...prevState[field],
-      // //     message: ['wtf is going on here', messageText]
-      // //   }
-      // // }))
-
-
-
-      // setFieldValidity(prevState => ({
-      //   ...prevState,
-      //   [field]: {
-      //     ...prevState[field],
-      //     message: [...prevState[field].message, messageText]
-      //   }
-      // }));
-
-
-      // const currentMessages = fieldValidity[field].message || [];
-      // setFieldValidity({ ...fieldValidity, [field]: {  message: [...currentMessages, messageText] }})
+      validationResults[field].message.push(messageText)
     }
 
     function removeMessage(field, messageText) {
-      console.log("removing message", field, messageText)
-      const filteredMessages = fieldValidity[field]?.message.filter(msg => msg !== messageText)
-      setFieldValidity({
-        ...fieldValidity,
-        [field]: { message: filteredMessages || [] }
-      })
+      const filteredMessages = validationResults[field].message.filter(msg => msg !== messageText)
+      validationResults[field].message = filteredMessages
     }
 
     function validateField(field, validationFn, messageText) {
@@ -165,11 +109,13 @@ export default function Kontakt() {
     validateField('jsEnabled', () => (jsEnabled !== "yes"), 'bot detected')
 
     validateField('name', () => (name !== ""), 'bot detected')
+
+    setFieldValidity(validationResults)
+    console.log('validation results:', validationResults)
   }
 
   const onSubmit = (event) => {
     event.preventDefault()
-    console.log("form submission started")
     const botDetected = fieldValidity.jsEnabled.message.length > 0 || fieldValidity.name.message.length > 0
     const hasValidationErrors = Object.values(fieldValidity).some(field => field.message.length > 0);
     if (botDetected) return
@@ -188,30 +134,7 @@ export default function Kontakt() {
       <div className="contact-wrapper bg-primary-700" style={{ minHeight: 'calc(100vh - 380px)'}}>
         <div className="contact-container flex flex-row max-w-[900px] mx-auto mt-8 mb-16 ">
           {/* contact data */}
-          <div className="contact-data-container pl-12 mt-12 min-w-[240px]">
-            <div className="contact-address-container mt-3">
-              <div className="contact-address-icon relative top-6 right-9 w-6 h-6">
-                <AddressIco />
-              </div>
-              <h2 className="contact-address-label uppercase font-semibold text-white">Adres:</h2>
-              <p className="contact-text text-white text-sm">ul. Kancelarii 5/8</p>
-              <p className="contact-text text-white text-sm">62-200, Gniezno</p>
-            </div>
-            <div className="contact-email-container mt-3">
-              <div className="contact-email-icon relative top-6 right-9 w-6 h-6 ">
-                <EmailIco />
-              </div>
-              <h2 className="contact-email-label uppercase font-semibold text-sm text-white">Email:</h2>
-              <p className="contact-text text-white text-sm">kancelaria@example.com</p>
-            </div>
-            <div className="contact-phone-container mt-3">
-              <div className="contact-phone-icon relative top-6 right-9 w-6 h-6 ">
-                <PhoneIco />
-              </div>
-              <h2 className="contact-phone-label uppercase font-semibold text-sm text-white">Tel./Fax:</h2>
-              <p className="contact-text text-white text-sm">kancelaria@example.com</p>
-            </div>
-          </div>
+          <KontaktData />
 
           {/* contact form */}
           <form onSubmit={onSubmit} className="contact-from-container flex flex-col min-w-[240px] w-full max-w-[680px] px-4 mt-8 mb-4 mx-auto">
@@ -220,8 +143,10 @@ export default function Kontakt() {
             <div className='captcha-awesomeness-handler 
             form-inputs-container' >
             <div className="contact-form-user-data grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
-              <input className={`contact-input-fullName p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md ${fieldValidity.fullName.message.length > 0 ? 'invalid-field' : ''}`} type="text" name="fullName" placeholder="Imię i nazwisko *" onChange={onInputChange} />
-              <label htmlFor="fullName">{fieldValidity.fullName.message.join(' ')}</label>
+              <div className='contact-fullName-container flex flex-col'>
+                <input className={`contact-input-fullName p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md ${fieldValidity.fullName.message.length > 0 ? 'invalid-field' : ''}`} type="text" name="fullName" placeholder="Imię i nazwisko *" onChange={onInputChange} />
+                <label className='contact-label-fullName text-xs text-red-600' htmlFor="fullName" >{fieldValidity.fullName.message.join(' ')}</label>
+              </div>
 
               <input className={`contact-input-email p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md ${fieldValidity.email.message.length > 0 ? 'invalid-field' : ''}`} type="text" name="email" placeholder="Email *" onChange={onInputChange} />
 
