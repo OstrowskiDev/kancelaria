@@ -8,8 +8,21 @@ export default function Checkmark({ setFormData, formData }) {
         }
         setFormData({ ...formData, acceptRodo: "yes" })
     }
+    function handleKeyDown(e) {
+        if (e.key === " " || e.key === "Enter") {
+            e.preventDefault()
+            handleClick()
+        }
+    }
     return (
-        <div className="checkmark-box relative w-full h-full min-w-8 min-h-10 max-w-8 max-h-10 mb-[7px] ml-1" onClick={handleClick}>
+        <div className="checkmark-box relative w-full h-full min-w-8 min-h-10 max-w-8 max-h-10 mb-[7px] ml-1" 
+            onClick={handleClick}
+            onKeyDown={handleKeyDown}
+            role="checkbox"
+            aria-checked={boxChecked ? "true" : "false"}
+            tabIndex="0"
+            aria-label="Akceptuję politykę prywatności i zasady przetwarzania danych osobowych RODO."
+        >
         {boxChecked ? 
             (<div className="checkmark-container">
             <div className="checkmark-green-animated"></div>

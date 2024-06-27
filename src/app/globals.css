@@ -78,6 +78,15 @@ body {
   }
 }
 
+/* kontakt form */
+.invalid-field {
+  border-color: red;
+}
+
+.valid-field {
+  border-color: green;
+}
+
 /* checkmark */
 .checkmark-container{
   position: relative;
@@ -96,7 +105,7 @@ body {
   height: 12px;
   border-bottom: 4px solid #049f57;
   border-left: 4px solid #049f57;
-  top: 16px;
+  top: 21px;
   left: 10px;
   transform: rotate(-45deg);
   transform-origin: bottom left;
