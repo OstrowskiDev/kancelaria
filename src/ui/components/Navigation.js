@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import HardReloadLink from './HardReloadLink'
 
 export function Navigation() {
   const path = usePathname()
@@ -34,6 +35,7 @@ export function Navigation() {
       <Link className={`navbar-anchor ${changeActiveClass('/kontakt')}`} href="/kontakt">
         KONTAKT
       </Link>
+      <HardReloadLink />
     </div>
   )
 }

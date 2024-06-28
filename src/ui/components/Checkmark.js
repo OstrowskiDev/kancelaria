@@ -19,6 +19,7 @@ export default function Checkmark({ setFormData, formData }) {
             onClick={handleClick}
             onKeyDown={handleKeyDown}
             role="checkbox"
+            name="acceptRodo"
             aria-checked={boxChecked ? "true" : "false"}
             tabIndex="0"
             aria-label="Akceptuję politykę prywatności i zasady przetwarzania danych osobowych RODO."

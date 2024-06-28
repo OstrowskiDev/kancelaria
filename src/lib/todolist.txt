@@ -1,2 +1,6 @@
 - dodać aktualności do strony głównej, jako publikacje
 - dodać opcjonalny tekst o urlopach do strony kontaktowej nad formularzem kontaktowym
+- zmienić layout informacji kontaktowych (telefon, email) tak by Judyta i Kasia miały osobne dane.
+- zintegrować reCAPTCHA z frontentdem
+- zintegrować reCAPTCHA z backendem
+- dodać powidomienie o sukcesie po wysłaniu formularza kontaktowego
