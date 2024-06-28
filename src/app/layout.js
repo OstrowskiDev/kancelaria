@@ -3,7 +3,6 @@ import './globals.css'
 import { Logo } from '@/ui/components/Logo'
 import { Navigation } from '@/ui/components/Navigation'
 import Footer from '@/ui/components/Footer'
-import Script from 'next/script'
 
 export const metadata = {
   title: 'Kancelaria Adwokacka',
@@ -17,8 +16,6 @@ export default function RootLayout({ children }) {
   return (
     <>
     <html lang="pl" className={`${roboto.variable} ${playfairDisplay.variable}`}>
-    {/* <Script src="https://www.google.com/recaptcha/api.js" async defer /> */}
-
       <body className='main-container bg-background-main'>
         <nav
           className='navbar sticky top-0 left-0 z-10 flex flex-row items-center h-[80px] px-6 bg-primary-700'

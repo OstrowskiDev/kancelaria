@@ -5,11 +5,12 @@ import { Header } from '@/ui/components/Header'
 import KontaktData from '@/ui/components/KontaktData'
 import RulesIco from '@/ui/icons/RulesIco'
 import Link from 'next/link'
-import Script from 'next/script'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import validator from 'validator'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 export default function Kontakt() {
+  const [token, setToken] = useState('') // store reCAPTCHA response token
   const [submitAttempted, setSubmitAttempted] = useState(false)
   const [formData, setFormData] = useState({
     fullName: '',
@@ -39,6 +40,10 @@ export default function Kontakt() {
   useEffect(() => {
     validateForm()
   }, [formData])
+
+  function onReCAPTCHAChange(token) {
+    setToken(token)
+  }
 
   function printError(fieldName) {
     return fieldValidity[fieldName].message.length > 0 && submitAttempted;
@@ -113,12 +118,18 @@ export default function Kontakt() {
       console.log("form submission failed, change required fields according to error messages")
       return
     }
-    console.log("form submission successful")
+    //!!!! add submission logic here
+    console.log("Form submitted with reCAPTCHA token: ", token)
+
+    // reset the reCAPTCHA after form submission
+    recaptchaRef.current.reset()
   }
+
+  const recaptchaRef = React.createRef()
 
   return (
     <>
-      <Script src="https://www.google.com/recaptcha/api.js" async defer />
+      {/* <Script src="https://www.google.com/recaptcha/api.js" async defer /> */}
 
       <Header title="Kontakt" />
       <div className="contact-wrapper bg-primary-700" style={{ minHeight: 'calc(100vh - 380px)'}}>
@@ -182,7 +193,12 @@ export default function Kontakt() {
               <label className='contact-label-rodo text-xs text-red-600' htmlFor="acceptRodo" >{printAcceptRodoError && fieldValidity.acceptRodo.message.join(' ')}</label>
             </div>
             
-            <div className="g-recaptcha" data-sitekey={process.env.RECAPTCHA_SITE_KEY} data-theme="light"></div>
+            {/* <div className="g-recaptcha" data-sitekey={process.env.RECAPTCHA_SITE_KEY} data-theme="light"></div> */}
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              onChange={onReCAPTCHAChange}
+              ref={recaptchaRef} />
+
             </div>
             </div>
 
