@@ -45,6 +45,7 @@ export default function Kontakt() {
     setToken(token)
   }
 
+
   function printError(fieldName) {
     return fieldValidity[fieldName].message.length > 0 && submitAttempted;
   }
@@ -192,12 +193,11 @@ export default function Kontakt() {
               </div>
               <label className='contact-label-rodo text-xs text-red-600' htmlFor="acceptRodo" >{printAcceptRodoError && fieldValidity.acceptRodo.message.join(' ')}</label>
             </div>
-            
-            {/* <div className="g-recaptcha" data-sitekey={process.env.RECAPTCHA_SITE_KEY} data-theme="light"></div> */}
+
             <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-              onChange={onReCAPTCHAChange}
-              ref={recaptchaRef} />
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+            onChange={onReCAPTCHAChange}
+            ref={recaptchaRef} />
 
             </div>
             </div>
