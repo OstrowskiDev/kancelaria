@@ -3,7 +3,8 @@
 const nextConfig = {
   output: 'export',
   basePath: '/kancelaria',
-  assetPrefix: '/kancelaria/',
+  // assetPrefix: '/kancelaria/blob/gh-pages/',
+  assetPrefix: 'https://marcinostrowskicoding.github.io/kancelaria/',
 }
 
 export default nextConfig

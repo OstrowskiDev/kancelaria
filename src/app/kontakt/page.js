@@ -45,7 +45,6 @@ export default function Kontakt() {
     setToken(token)
   }
 
-
   function printError(fieldName) {
     return fieldValidity[fieldName].message.length > 0 && submitAttempted;
   }
@@ -130,8 +129,6 @@ export default function Kontakt() {
 
   return (
     <>
-      {/* <Script src="https://www.google.com/recaptcha/api.js" async defer /> */}
-
       <Header title="Kontakt" />
       <div className="contact-wrapper bg-primary-700" style={{ minHeight: 'calc(100vh - 380px)'}}>
         <div className="contact-container flex flex-row max-w-[900px] mx-auto mt-8 mb-16 ">
