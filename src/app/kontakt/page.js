@@ -180,17 +180,19 @@ export default function Kontakt() {
         style={{ minHeight: "calc(100vh - 380px)" }}
       >
         {/* google maps */}
-        <div className="google-maps-container w-[900px] h-[400px] mt-16 mx-auto">
+        <div className="google-maps-container w-[900px] my-16 mx-auto">
           <h2 className="google-maps-label mb-2 uppercase font-semibold text-white text-xl">
             lokalizacja kancelarii
           </h2>
           <GoogleDynamicMaps />
         </div>
 
-        <div className="contact-container flex flex-row max-w-[900px] mx-auto mt-8 mb-16 ">
+        <div className="contact-container max-w-[900px] mx-auto mt-8 mb-16 ">
           {/* contact data */}
           <KontaktData />
+        </div>
 
+        <div className="contact-form-wrapper flex flex-row max-w-[900px] mx-auto mt-8 mb-16 ">
           {/* contact form */}
           <form
             onSubmit={onSubmit}

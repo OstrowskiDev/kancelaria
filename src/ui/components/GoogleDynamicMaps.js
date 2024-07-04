@@ -74,8 +74,10 @@ export default function GoogleDynamicMaps() {
           onCloseClick={() => setIsInfoWindowOpen(false)}
         >
           <div>
-            <h3>Kancelaria Adwokacka</h3>
-            <p>Business Address</p>
+            <p className="uppercase font-semibold">Kancelaria Adwokacka</p>
+            <p>Adwokat Judyta Ciesielska</p>
+            <p>Adwokat Katarzyna Markiewicz</p>
+            <p className="italic">ul. Franciszkańska 1/1, 62-200 Gniezno</p>
           </div>
         </InfoWindow>
       )}
