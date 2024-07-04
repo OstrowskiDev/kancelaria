@@ -180,23 +180,23 @@ export default function Kontakt() {
         style={{ minHeight: "calc(100vh - 380px)" }}
       >
         {/* google maps */}
-        <div className="google-maps-container w-[900px] my-16 mx-auto">
+        <div className="google-maps-container w-[760px] my-16 mx-auto">
           <h2 className="google-maps-label mb-2 uppercase font-semibold text-white text-xl">
             lokalizacja kancelarii
           </h2>
           <GoogleDynamicMaps />
         </div>
 
-        <div className="contact-container max-w-[900px] mx-auto mt-8 mb-16 ">
+        <div className="contact-container max-w-[760px] mx-auto mt-8 mb-16 ">
           {/* contact data */}
           <KontaktData />
         </div>
 
-        <div className="contact-form-wrapper flex flex-row max-w-[900px] mx-auto mt-8 mb-16 ">
+        <div className="contact-form-wrapper flex flex-row max-w-[760px] mx-auto mt-8 mb-16 ">
           {/* contact form */}
           <form
             onSubmit={onSubmit}
-            className="contact-from-container flex flex-col min-w-[240px] w-full max-w-[680px] px-4 mt-8 mb-4 mx-auto"
+            className="contact-from-container flex flex-col min-w-[240px] w-full max-w-[760px] px-4 mt-8 mb-4 mx-auto"
           >
             <h2 className="contact-form-label p-1 mb-1 uppercase tracking-wide text-white font-semibold text-xl">
               {"formularz kontaktowy"}
@@ -206,7 +206,7 @@ export default function Kontakt() {
               className="captcha-awesomeness-handler 
             form-inputs-container"
             >
-              <div className="contact-form-user-data grid grid-cols-1 md:grid-cols-2 gap-3 mb-3">
+              <div className="contact-form-user-data grid grid-cols-1 md:contact-form-col-grow gap-3 mb-3">
                 <div className="contact-fullName-container flex flex-col">
                   <input
                     className={`contact-input-fullName p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md ${printFullNameError && "invalid-field"}`}
@@ -240,22 +240,6 @@ export default function Kontakt() {
                   </label>
                 </div>
 
-                <div className="contact-phone-container flex flex-col">
-                  <input
-                    className={`contact-input-phone p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md ${printPhoneError && "invalid-field"}`}
-                    type="text"
-                    name="phone"
-                    placeholder="Telefon *"
-                    onChange={onInputChange}
-                  />
-                  <label
-                    className="contact-label-phone text-xs text-red-600"
-                    htmlFor="phone"
-                  >
-                    {printPhoneError && fieldValidity.phone.message.join(" ")}
-                  </label>
-                </div>
-
                 <div className="contact-topic-container flex flex-col">
                   <input
                     className={`contact-input-topic p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md ${printTopicError && "invalid-field"}`}
@@ -269,6 +253,22 @@ export default function Kontakt() {
                     htmlFor="topic"
                   >
                     {printTopicError && fieldValidity.topic.message.join(" ")}
+                  </label>
+                </div>
+
+                <div className="contact-phone-container flex flex-col">
+                  <input
+                    className={`contact-input-phone p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md ${printPhoneError && "invalid-field"}`}
+                    type="text"
+                    name="phone"
+                    placeholder="Telefon *"
+                    onChange={onInputChange}
+                  />
+                  <label
+                    className="contact-label-phone text-xs text-red-600"
+                    htmlFor="phone"
+                  >
+                    {printPhoneError && fieldValidity.phone.message.join(" ")}
                   </label>
                 </div>
 
@@ -303,14 +303,14 @@ export default function Kontakt() {
               </div>
 
               <div className="contact-checkboxes-container flex flex-row justify-between mt-2">
-                <div className="rodo-checkbox-container flex flex-col mr-4">
+                <div className="rodo-checkbox-container grow flex flex-col mr-4">
                   <div
                     className={`contact-accept-rodo flex flex-row items-center h-[76px] p-2  bg-white border-2 rounded-[4px] ${printAcceptRodoError && "invalid-field"}`}
                     //  style={{ borderColor: 'rgb(82, 82, 82)'}}
                   >
                     <Checkmark setFormData={setFormData} formData={formData} />
                     <label
-                      className="accept-rodo-text max-w-[192px] ml-3 text-sm text-primary-800 leading-tight"
+                      className="accept-rodo-text max-w-[260px] ml-3 text-sm text-primary-800 leading-tight"
                       htmlFor="acceptRodo"
                     >
                       {`Akceptuję `}
@@ -324,7 +324,7 @@ export default function Kontakt() {
                       </Link>{" "}
                       i zasady przetwarzania danych osobowych RODO.
                     </label>
-                    <div className="contact-rodo-icon w-[40px] h-[40px] ml-2">
+                    <div className="contact-rodo-icon w-[40px] h-[40px] ml-auto">
                       <RulesIco />
                     </div>
                   </div>

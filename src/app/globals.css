@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  @screen md {
+    .contact-form-col-grow {
+      grid-template-columns: 1fr 312px;
+    }
+  }
+}
+
 /* fonts */
 
 .navbar-anchor,
@@ -21,20 +29,20 @@ h3 {
   font-family: var(--font-playfairDisplay);
 }
 
-p, span {
+p,
+span {
   font-family: var(--font-roboto);
 }
 
 footer,
 footer a,
 footer p {
-  font-family: var(--font-playfairDisplay)
+  font-family: var(--font-playfairDisplay);
 }
 
 .font-custom-serif {
   font-family: var(--font-playfairDisplay);
 }
-
 
 /* global */
 
@@ -47,17 +55,17 @@ body {
 }
 
 .separator {
-  @apply  my-3 border-b-2 border-secondary-300;
-} 
+  @apply my-3 border-b-2 border-secondary-300;
+}
 
 .contact-form-label {
-  word-spacing: 3px
+  word-spacing: 3px;
 }
 
 .article-content {
   display: -webkit-box;
-  -webkit-line-clamp: 9; 
-  -webkit-box-orient: vertical;  
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -88,7 +96,7 @@ body {
 }
 
 /* checkmark */
-.checkmark-container{
+.checkmark-container {
   position: relative;
   width: 28px;
   height: 40px;
@@ -99,7 +107,7 @@ body {
 }
 
 .checkmark-green-animated {
-  content: '';
+  content: "";
   position: absolute;
   width: 28px;
   height: 12px;
@@ -113,9 +121,9 @@ body {
 }
 
 .checkmark-green-animated::after {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0px; 
+  top: 0px;
   left: -4px;
   right: 0px;
   bottom: -4px;
@@ -125,9 +133,9 @@ body {
 }
 
 .checkmark-green-animated::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0px; 
+  top: 0px;
   left: -1px;
   right: 0px;
   bottom: -1px;
