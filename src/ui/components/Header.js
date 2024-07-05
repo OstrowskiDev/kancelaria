@@ -1,5 +1,4 @@
 export function Header({ title }) {
-  console.log("Header")
   return (
     <div
       className="header flex justify-center items-center h-[240px] bg-primary-600"

@@ -206,7 +206,7 @@ export default function Kontakt() {
               className="captcha-awesomeness-handler 
             form-inputs-container"
             >
-              <div className="contact-form-user-data grid grid-cols-1 md:contact-form-col-grow gap-3 mb-3">
+              <div className="contact-form-user-data grid grid-cols-1 md:grid-template-grow-fixed gap-3 mb-3">
                 <div className="contact-fullName-container flex flex-col">
                   <input
                     className={`contact-input-fullName p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md ${printFullNameError && "invalid-field"}`}

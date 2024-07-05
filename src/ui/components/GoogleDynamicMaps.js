@@ -7,7 +7,7 @@ import {
 } from "@react-google-maps/api"
 
 const containerStyle = {
-  width: "896px",
+  width: "756px",
   height: "396px",
   border: "2px solid #E6C693",
   borderRadius: "4px",
@@ -54,7 +54,7 @@ export default function GoogleDynamicMaps() {
         rotateControl: false, // disable rotation controls
         scaleControl: false, // disable scale control
         fullscreenControl: false, // disable fullscreen control
-        zoomControl: true, // keep or remove zoom control as per your requirement
+        zoomControl: true, // zoom control
         styles: [
           {
             featureType: "poi",

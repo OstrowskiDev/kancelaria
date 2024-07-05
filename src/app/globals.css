@@ -4,7 +4,7 @@
 
 @layer utilities {
   @screen md {
-    .contact-form-col-grow {
+    .grid-template-grow-fixed {
       grid-template-columns: 1fr 312px;
     }
   }
