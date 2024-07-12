@@ -62,15 +62,11 @@ body {
   text-overflow: ellipsis;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.two-columns {
+  column-count: 2;
+  column-gap: 20px; /* Adjust the gap size as needed */
 }
+
 
 @layer utilities {
   .text-balance {

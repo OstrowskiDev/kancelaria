@@ -1,7 +1,8 @@
-import { HeaderMain } from '@/ui/components/HeaderMain'
-import { home } from '@/mock-data/home'
-import Link from 'next/link'
-import EnterIco from '@/ui/icons/EnterIco'
+import { HeaderMain } from "@/ui/components/HeaderMain"
+import { home } from "@/mock-data/home"
+import Link from "next/link"
+import EnterIco from "@/ui/icons/EnterIco"
+import Image from "next/image"
 
 export default function Home() {
   return (
@@ -17,12 +18,20 @@ export default function Home() {
           {home.introduction.title}
         </h2>
         <div className="separator"></div>
-        <div className="introduction-content flex flex-row">
+        <div className="introduction-content flex flex-col">
+          <div className="introduction-image relative h-[480px] mt-1 border border-secondary-200 shrink-0">
+            <Image
+              src="/zapraszamy.jpg"
+              alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz uśmiechnięte i siedzące przy stole w kancelarii. Zapraszają do współpracy."
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center 80%"
+            />
+          </div>
           <p
-            className="introduction-text text-primary-700 text-justify mr-8"
+            className="introduction-text text-primary-700 text-justify mt-4 two-columns"
             dangerouslySetInnerHTML={{ __html: home.introduction.content }}
           ></p>
-          <div className="introduction-image w-1/2 h-[600px] mt-1 border border-secondary-200 shrink-0"></div>
         </div>
       </div>
 
@@ -44,8 +53,9 @@ export default function Home() {
                     key={index}
                   >
                     <p className="service-description text-white m-4">
-                      Zwięzły opis usługi lub ikona. Erat aliquyam lorem et nonumy sadipscing.
-                      Sanctus takimata sea dolore labore. Eos kasd sadipscing clita vero diam.
+                      Zwięzły opis usługi lub ikona. Erat aliquyam lorem et
+                      nonumy sadipscing. Sanctus takimata sea dolore labore. Eos
+                      kasd sadipscing clita vero diam.
                     </p>
                     <Link
                       className="service-link absolute left-4 bottom-3 flex flex-row items-center "
@@ -75,7 +85,15 @@ export default function Home() {
             className="team-text text-primary-700 text-justify mr-8"
             dangerouslySetInnerHTML={{ __html: home.team.content }}
           ></p>
-          <div className="team-image w-1/2 h-[600px] mt-1 border border-secondary-200 shrink-0"></div>
+          <div className="team-image relative w-1/2 h-[600px] mt-1 border border-secondary-200 shrink-0">
+            <Image
+              src="/team.jpg"
+              alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. W tle godło Polski"
+              layout="fill"
+              objectFit="cover"
+              objectPosition="center 20%"
+            />
+          </div>
         </div>
       </div>
     </div>
