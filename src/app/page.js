@@ -21,7 +21,7 @@ export default function Home() {
         <div className="introduction-content flex flex-col">
           <div className="introduction-image relative h-[480px] mt-1 border border-secondary-200 shrink-0">
             <Image
-              src="/zapraszamy.jpg"
+              src="zapraszamy.jpg"
               alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz uśmiechnięte i siedzące przy stole w kancelarii. Zapraszają do współpracy."
               layout="fill"
               objectFit="cover"
@@ -87,7 +87,7 @@ export default function Home() {
           ></p>
           <div className="team-image relative w-1/2 h-[600px] mt-1 border border-secondary-200 shrink-0">
             <Image
-              src="/team.jpg"
+              src="team.jpg"
               alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. W tle godło Polski"
               layout="fill"
               objectFit="cover"
