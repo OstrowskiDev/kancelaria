@@ -1,5 +1,6 @@
-import { Header } from '@/ui/components/Header'
-import { team } from '@/mock-data/team'
+import { Header } from "@/ui/components/Header"
+import { team } from "@/mock-data/team"
+import Image from "next/image"
 
 export default function Zespol() {
   return (
@@ -18,11 +19,18 @@ export default function Zespol() {
               </h3>
             </div>
             <div className="team-member-content flex flex-row">
-              <p className="team-member-description mr-10 text-justify ">{member.description}</p>
-              <div
-                className="team-member-photo w-[360px] h-[480px] border border-secondary-200 shrink-0"
-                alt={`team member: ${member.name}, ${member.title}`}
-              ></div>
+              <p className="team-member-description mr-10 text-justify ">
+                {member.description}
+              </p>
+              <div className="team-member-photo relative w-[360px] h-[480px] border border-secondary-200 shrink-0">
+                <Image
+                  src={`${member.image}`}
+                  alt={`${member.name}, ${member.title}`}
+                  layout="fill"
+                  objectFit="cover"
+                  objectPosition="center 25%"
+                />
+              </div>
             </div>
           </div>
         ))}

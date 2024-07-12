@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export function Navigation() {
   const path = usePathname()
@@ -12,26 +12,35 @@ export function Navigation() {
   function changeActiveClass(href) {
     return `${
       isActive(href)
-        ? 'text-secondary-200 border-b-2 border-secondary-200'
-        : 'text-white hover:border-b-2 hover:border-white'
+        ? "text-secondary-200 border-b-2 border-secondary-200"
+        : "text-white hover:border-b-2 hover:border-white"
     }`
   }
 
   return (
     <div className="navbar-anchors">
-      <Link className={`navbar-anchor ${changeActiveClass('/zespol')}`} href="/zespol">
+      <Link
+        className={`navbar-anchor ${changeActiveClass("/zespol")}`}
+        href="/zespol"
+      >
         ZESPÓŁ
       </Link>
-      <Link className={`navbar-anchor ${changeActiveClass('/zakres-uslug')}`} href="/zakres-uslug">
+      <Link
+        className={`navbar-anchor ${changeActiveClass("/zakres-uslug")}`}
+        href="/zakres-uslug"
+      >
         ZAKRES USŁUG
       </Link>
-      <Link className={`navbar-anchor ${changeActiveClass('/publikacje')}`} href="/publikacje">
+      <Link
+        className={`navbar-anchor ${changeActiveClass("/publikacje")}`}
+        href="/publikacje"
+      >
         PUBLIKACJE
       </Link>
-      <Link className={`navbar-anchor ${changeActiveClass('/kancelaria')}`} href="/kancelaria">
-        KANCELARIA
-      </Link>
-      <Link className={`navbar-anchor ${changeActiveClass('/kontakt')}`} href="/kontakt">
+      <Link
+        className={`navbar-anchor ${changeActiveClass("/kontakt")}`}
+        href="/kontakt"
+      >
         KONTAKT
       </Link>
     </div>
