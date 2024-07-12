@@ -161,7 +161,7 @@ export default function ContactForm({ formData, setFormData }) {
   return (
     <form
       onSubmit={onSubmit}
-      className="contact-from-container flex flex-col min-w-[240px] w-full max-w-[760px] px-4 mt-8 mb-4 mx-auto"
+      className="contact-from-container flex flex-col min-w-[240px] w-full max-w-[760px] mt-8 mb-4 mx-auto"
     >
       <h2 className="contact-form-label p-1 mb-1 uppercase tracking-wide text-white font-semibold text-xl">
         {"formularz kontaktowy"}
@@ -253,7 +253,7 @@ export default function ContactForm({ formData, setFormData }) {
         {/* message content */}
         <div className="contact-content-container flex flex-col">
           <textarea
-            className={`contact-input-content w-full h-48 p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md ${printContentError && "invalid-field"}`}
+            className={`contact-input-content w-full h-48 mb-2 p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md ${printContentError && "invalid-field"}`}
             type="text"
             name="content"
             placeholder="Wiadomość *"
