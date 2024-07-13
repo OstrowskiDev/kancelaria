@@ -46,7 +46,7 @@ export function HeaderMain() {
         <h1
           className="header-label-main absolute lg:static bottom-4 lg:mt-4 ml-4 uppercase font-semibold lg:font-bold text-secondary-200 text-xl lg:text-2xl xl:text-2rem leading-loose xl:leading-2.5rem tracking-1rem lg:tracking-1.5rem xl:tracking-2rem"
           style={{
-            "word-spacing": "2rem",
+            wordSpacing: "2rem",
           }}
         >
           kancelarie adwokackie

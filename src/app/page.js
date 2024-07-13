@@ -13,43 +13,50 @@ export default function Home() {
       />
 
       {/* introduction */}
-      <div className="introduction-container max-w-[900px] mt-8 mb-16 mx-auto">
+      <div className="introduction-container max-w-[900px] px-6 mt-8 mb-16 mx-auto">
         <h2 className="introduction-title relative top-3 uppercase text-primary-900 font-semibold text-2xl">
           {home.introduction.title}
         </h2>
         <div className="separator"></div>
         <div className="introduction-content flex flex-col">
-          <div className="introduction-image relative h-[480px] mt-1 border border-secondary-200 shrink-0">
+          <div className="introduction-image-desktop hidden sm:block relative max-h-[480px] h-[50vw] mt-1 border border-secondary-200 shrink-0">
             <Image
               src="zapraszamy.jpg"
               alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz uśmiechnięte i siedzące przy stole w kancelarii. Zapraszają do współpracy."
+              style={{ objectFit: "cover", objectPosition: "center 80%" }}
               layout="fill"
-              objectFit="cover"
-              objectPosition="center 80%"
+            />
+          </div>
+          <div className="introduction-image-desktop sm:hidden relative h-[320px] mt-1 border border-secondary-200 shrink-0">
+            <Image
+              src="zapraszamy_mobile.jpg"
+              alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. Zapraszają do współpracy."
+              style={{ objectFit: "cover", objectPosition: "65% 10%" }}
+              layout="fill"
             />
           </div>
           <p
-            className="introduction-text text-primary-700 text-justify mt-4 two-columns"
+            className="introduction-text mt-4 sm:columns-2 sm:gap-5 text-primary-700 text-justify"
             dangerouslySetInnerHTML={{ __html: home.introduction.content }}
           ></p>
         </div>
       </div>
 
       {/* services */}
-      <div className="services-wrapper pt-8 pb-16 w-full bg-primary-700">
+      <div className="services-wrapper px-6 pt-8 pb-16 w-full bg-primary-700">
         <div className="services-container max-w-[900px] mx-auto">
           <h2 className="services-title my-6 uppercase text-white font-semibold text-2xl">
             {home.services.title}
           </h2>
-          <div className="services-list grid grid-cols-3 gap-12">
+          <div className="services-list grid grid-cols-1 above-560:grid-cols-2 above-850:grid-cols-3 gap-8 sm:px-5">
             {home.services.services.map((service, index) => {
               return (
-                <div className="service-main-container w-[240px]" key={index}>
+                <div className="service-main-container mx-auto" key={index}>
                   <h3 className="service-title my-2 uppercase text-xl font-semibold text-white text-center">
                     {service.title}
                   </h3>
                   <div
-                    className="service-container relative w-[240px] h-[240px] border-y-2 border-secondary-200 bg-primary-600"
+                    className="service-container relative min-w-[240px] max-w-[3200px] w-full above-560:h-[240px] below-560:pb-8 border-y-2 border-secondary-200 bg-primary-600"
                     key={index}
                   >
                     <p className="service-description text-white m-4">
@@ -75,7 +82,7 @@ export default function Home() {
       </div>
 
       {/* about team */}
-      <div className="team-container max-w-[900px] mt-8 mb-16 mx-auto">
+      <div className="team-container max-w-[900px] px-6 mt-8 mb-16 mx-auto">
         <h2 className="team-title relative top-3 uppercase text-primary-900 font-semibold text-2xl">
           {home.team.title}
         </h2>
@@ -90,8 +97,7 @@ export default function Home() {
               src="team.jpg"
               alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. W tle godło Polski"
               layout="fill"
-              objectFit="cover"
-              objectPosition="center 20%"
+              style={{ objectFit: "cover", objectPosition: "center 20%" }}
             />
           </div>
         </div>

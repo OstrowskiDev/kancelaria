@@ -62,18 +62,6 @@ body {
   text-overflow: ellipsis;
 }
 
-.two-columns {
-  column-count: 2;
-  column-gap: 20px; /* Adjust the gap size as needed */
-}
-
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 /* kontakt form */
 .invalid-field {
   border-color: red;

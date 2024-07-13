@@ -1,15 +1,20 @@
-import Link from 'next/link'
+import Link from "next/link"
+import LogoJudytaCiesielska from "../icons/LogoJudytaCiesielska"
+import LogoKatarzynaMarkiewicz from "../icons/LogoKatarzynaMarkiewicz"
 
 export function Logo() {
   return (
     <Link className="navbar-logo-anchor mr-auto" href="/">
-      <div className="navbar-logo flex flex-row items-center">
-        <div className="navbar-logo-img w-8 h-8 mr-2 border-secondary-200 border-2"></div>
-
-        <p className="font-bold text-lg text-secondary-200">MARKIEWICZ</p>
-        <span className="text-xs text-secondary-200">&</span>
-        <p className="font-bold text-lg text-secondary-200">CIESIELSKA</p>
-        <span className="text-xs text-secondary-200">tm</span>
+      <div className="navbar-logos flex flex-row items-center">
+        <p className="hidden sm:block mr-2 uppercase text-sm text-secondary-200">
+          kancelarie <br></br> adwokackie
+        </p>
+        <div className="navbar-logo-container w-10">
+          <LogoJudytaCiesielska />
+        </div>
+        <div className="navbar-logo-container w-10 ml-2">
+          <LogoKatarzynaMarkiewicz />
+        </div>
       </div>
     </Link>
   )

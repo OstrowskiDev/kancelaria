@@ -3,7 +3,7 @@ export function Header({ title }) {
     <div
       className="header flex justify-center items-center h-[240px] bg-primary-600"
       style={{
-        backgroundImage: 'url("/header02small.jpg")',
+        backgroundImage: 'url("header02small.jpg")',
         backgroundSize: "cover",
         backgroundPosition: "center 20%",
         width: "100%",
