@@ -1,21 +1,56 @@
-export function HeaderMain({ title }) {
+import LogoJudytaCiesielska from "../icons/LogoJudytaCiesielska"
+import LogoKatarzynaMarkiewicz from "../icons/LogoKatarzynaMarkiewicz"
+
+export function HeaderMain() {
   return (
     <div
-      className="header flex justify-center items-center bg-primary-600"
+      className="header-background-image flex justify-center items-center bg-primary-600"
       style={{
         backgroundImage: `url("header02small.jpg")`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center 20%',
-        width: '100%',
-        height: 'calc(100vh - 80px)',
+        backgroundSize: "cover",
+        backgroundPosition: "center 20%",
+        width: "100%",
+        height: "calc(100vh - 80px)",
       }}
     >
-      <div className="w-full max-w-[900px] overflow-hidden">
+      <div className="header-vertical-container flex flex-col items-center">
+        <div className="header-horizontal-container flex flex-row justify-center items-center w-full overflow-hidden">
+          <div className="header-judyta-ciesielska relative flex flex-row">
+            <div className="header-icon flex relative  ">
+              <div className="header-logo-container relative right-[110px] w-[500px]">
+                <LogoJudytaCiesielska />
+              </div>
+              <div className="empty w-[120px]"></div>
+              <h2 className="logo-fullname absolute top-52 right-24 font-semibold text-3xl text-secondary-200">
+                Adwokat <br></br> Judyta Ciesielska
+              </h2>
+            </div>
+          </div>
+
+          <div className="header-judyta-ciesielska relative flex flex-row">
+            <div className="header-icon flex relative  ">
+              <div className="header-logo-container relative right-[100px] w-[500px]">
+                <LogoKatarzynaMarkiewicz />
+              </div>
+              <div className="empty w-[200px]"></div>
+              <div className="logo-fullname absolute top-52 right-24">
+                <h2 className="font-semibold text-3xl text-secondary-200">
+                  Adwokat <br></br> Katarzyna Markiewicz
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
         <h1
-          className="italic text-white tracking-wide"
-          style={{ fontSize: '1.7rem', lineHeight: '2.5rem' }}
+          className="header-label-main uppercase font-bold text-secondary-200 tracking-wide"
+          style={{
+            fontSize: "2rem",
+            lineHeight: "2.5rem",
+            "letter-spacing": "2rem",
+            "word-spacing": "6rem",
+          }}
         >
-          {title}
+          kancelarie adwokackie
         </h1>
       </div>
     </div>
