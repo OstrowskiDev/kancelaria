@@ -15,25 +15,27 @@ export function HeaderMain() {
     >
       <div className="header-vertical-container flex flex-col items-center">
         <div className="header-horizontal-container flex flex-row justify-center items-center w-full overflow-hidden">
+          {/* logo JC */}
           <div className="header-judyta-ciesielska relative flex flex-row">
-            <div className="header-icon flex relative  ">
-              <div className="header-logo-container relative right-[110px] w-[500px]">
+            <div className="header-icon flex flex-row items-center">
+              <div className="header-logo-container w-[280px] m-8">
                 <LogoJudytaCiesielska />
               </div>
-              <div className="empty w-[120px]"></div>
-              <h2 className="logo-fullname absolute top-52 right-24 font-semibold text-3xl text-secondary-200">
-                Adwokat <br></br> Judyta Ciesielska
-              </h2>
+              <div className="header-logo-fullname">
+                <h2 className="font-semibold text-3xl text-secondary-200">
+                  Adwokat <br></br> Judyta Ciesielska
+                </h2>
+              </div>
             </div>
           </div>
 
-          <div className="header-judyta-ciesielska relative flex flex-row">
-            <div className="header-icon flex relative  ">
-              <div className="header-logo-container relative right-[100px] w-[500px]">
+          {/* logo KM */}
+          <div className="header-katarzyna-markiewicz relative flex flex-row">
+            <div className="header-icon flex flex-row items-center">
+              <div className="header-logo-container w-[280px] m-8">
                 <LogoKatarzynaMarkiewicz />
               </div>
-              <div className="empty w-[200px]"></div>
-              <div className="logo-fullname absolute top-52 right-24">
+              <div className="header-logo-fullname">
                 <h2 className="font-semibold text-3xl text-secondary-200">
                   Adwokat <br></br> Katarzyna Markiewicz
                 </h2>
