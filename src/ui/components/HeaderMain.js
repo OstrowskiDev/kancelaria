@@ -4,7 +4,7 @@ import LogoKatarzynaMarkiewicz from "../icons/LogoKatarzynaMarkiewicz"
 export function HeaderMain() {
   return (
     <div
-      className="header-background-image flex justify-center items-center bg-primary-600"
+      className="header-background-image relative flex justify-center items-center bg-primary-600"
       style={{
         backgroundImage: `url("header02small.jpg")`,
         backgroundSize: "cover",
@@ -13,16 +13,16 @@ export function HeaderMain() {
         height: "calc(100vh - 80px)",
       }}
     >
-      <div className="header-vertical-container flex flex-col items-center">
+      <div className="header-vertical-container  flex flex-col items-center">
         <div className="header-horizontal-container flex flex-row justify-center items-center w-full overflow-hidden">
           {/* logo JC */}
-          <div className="header-judyta-ciesielska relative flex flex-row">
-            <div className="header-icon flex flex-row items-center">
-              <div className="header-logo-container w-[280px] m-8">
+          <div className="header-judyta-ciesielska relative flex flex-row mr-8 lg:mr-0">
+            <div className="header-icon flex flex-col lg:flex-row  items-center">
+              <div className="header-logo-container w-52 xl:w-72 my-4 mx-5">
                 <LogoJudytaCiesielska />
               </div>
-              <div className="header-logo-fullname">
-                <h2 className="font-semibold text-3xl text-secondary-200">
+              <div className="header-fullname-container min-w-[250px] relative  lg:static top-2 left-2 lg:min-w-[200px]">
+                <h2 className="header-fullname font-semibold text-2xl xl:text-3xl text-secondary-200">
                   Adwokat <br></br> Judyta Ciesielska
                 </h2>
               </div>
@@ -31,12 +31,12 @@ export function HeaderMain() {
 
           {/* logo KM */}
           <div className="header-katarzyna-markiewicz relative flex flex-row">
-            <div className="header-icon flex flex-row items-center">
-              <div className="header-logo-container w-[280px] m-8">
+            <div className="header-icon flex flex-col lg:flex-row items-center">
+              <div className="header-logo-container w-52 h-50 xl:w-72 my-4 mx-5">
                 <LogoKatarzynaMarkiewicz />
               </div>
-              <div className="header-logo-fullname">
-                <h2 className="font-semibold text-3xl text-secondary-200">
+              <div className="header-fullname-container relative lg:static bottom-2 left-2  min-w-[250px]">
+                <h2 className="font-semibold text-2xl xl:text-3xl text-secondary-200">
                   Adwokat <br></br> Katarzyna Markiewicz
                 </h2>
               </div>
@@ -44,12 +44,9 @@ export function HeaderMain() {
           </div>
         </div>
         <h1
-          className="header-label-main uppercase font-bold text-secondary-200 tracking-wide"
+          className="header-label-main absolute lg:static bottom-4 lg:mt-4 ml-4 uppercase font-semibold lg:font-bold text-secondary-200 text-xl lg:text-2xl xl:text-2rem leading-loose xl:leading-2.5rem tracking-1rem lg:tracking-1.5rem xl:tracking-2rem"
           style={{
-            fontSize: "2rem",
-            lineHeight: "2.5rem",
-            "letter-spacing": "2rem",
-            "word-spacing": "6rem",
+            "word-spacing": "2rem",
           }}
         >
           kancelarie adwokackie
