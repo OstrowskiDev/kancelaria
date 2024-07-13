@@ -14,12 +14,13 @@ export default function Home() {
 
       {/* introduction */}
       <div className="introduction-container max-w-[900px] px-6 mt-8 mb-16 mx-auto">
-        <h2 className="introduction-title relative top-3 uppercase text-primary-900 font-semibold text-2xl">
+        <h2 className="introduction-title relative top-3 uppercase text-primary-900 below-sm:text-center font-semibold text-2xl">
           {home.introduction.title}
         </h2>
         <div className="separator"></div>
         <div className="introduction-content flex flex-col">
-          <div className="introduction-image-desktop hidden sm:block relative max-h-[480px] h-[50vw] mt-1 border border-secondary-200 shrink-0">
+          {/* image for desktop */}
+          <div className="introduction-image-desktop below-sm:hidden relative max-h-[480px] h-[50vw] mt-1 border border-secondary-200 shrink-0">
             <Image
               src="zapraszamy.jpg"
               alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz uśmiechnięte i siedzące przy stole w kancelarii. Zapraszają do współpracy."
@@ -27,6 +28,7 @@ export default function Home() {
               layout="fill"
             />
           </div>
+          {/* image for mobile */}
           <div className="introduction-image-desktop sm:hidden relative h-[320px] mt-1 border border-secondary-200 shrink-0">
             <Image
               src="zapraszamy_mobile.jpg"
@@ -45,7 +47,7 @@ export default function Home() {
       {/* services */}
       <div className="services-wrapper px-6 pt-8 pb-16 w-full bg-primary-700">
         <div className="services-container max-w-[900px] mx-auto">
-          <h2 className="services-title my-6 uppercase text-white font-semibold text-2xl">
+          <h2 className="services-title my-6 uppercase below-sm:text-center text-white font-semibold text-2xl">
             {home.services.title}
           </h2>
           <div className="services-list grid grid-cols-1 above-560:grid-cols-2 above-850:grid-cols-3 gap-8 sm:px-5">
@@ -83,21 +85,31 @@ export default function Home() {
 
       {/* about team */}
       <div className="team-container max-w-[900px] px-6 mt-8 mb-16 mx-auto">
-        <h2 className="team-title relative top-3 uppercase text-primary-900 font-semibold text-2xl">
+        <h2 className="team-title relative top-3 uppercase below-sm:text-center text-primary-900 font-semibold text-2xl">
           {home.team.title}
         </h2>
         <div className="separator"></div>
-        <div className="team-content flex flex-row">
+        <div className="team-content flex flex-col-reverse sm:flex-row">
           <p
-            className="team-text text-primary-700 text-justify mr-8"
+            className="team-text below-sm:mt-4 text-primary-700 text-justify sm:mr-8"
             dangerouslySetInnerHTML={{ __html: home.team.content }}
           ></p>
-          <div className="team-image relative w-1/2 h-[600px] mt-1 border border-secondary-200 shrink-0">
+          {/* image for desktop */}
+          <div className="team-image-desktop relative below-sm:hidden w-1/2 h-[600px] mt-1 border border-secondary-200 shrink-0">
             <Image
               src="team.jpg"
               alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. W tle godło Polski"
               layout="fill"
               style={{ objectFit: "cover", objectPosition: "center 20%" }}
+            />
+          </div>
+          {/* image for mobile */}
+          <div className="team-image-mobile sm:hidden relative w-full h-[70vw] mt-1 border border-secondary-200 shrink-0">
+            <Image
+              src="team.jpg"
+              alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. W tle godło Polski"
+              layout="fill"
+              style={{ objectFit: "cover", objectPosition: "center 80%" }}
             />
           </div>
         </div>

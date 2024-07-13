@@ -48,6 +48,7 @@ module.exports = {
       screens: {
         "below-560": { max: "559px" },
         "above-560": { min: "560px" },
+        "below-sm": { max: "639px" },
         "below-720": { max: "719px" },
         "above-720": { min: "720px" },
         "below-850": { max: "849px" },
