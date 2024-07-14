@@ -6,7 +6,7 @@ import { Navigation } from "./Navigation"
 import { NavLinksMobile } from "./NavLinksMobile"
 
 export function Navbar() {
-  const [isMenuVisible, setIsMenuVisible] = useState(true)
+  const [isMenuVisible, setIsMenuVisible] = useState(false)
 
   return (
     <>

@@ -34,9 +34,11 @@ export default function Publikacje() {
                     <Image
                       src={authorAvatar(article.author)}
                       alt={`article author: ${article.author}`}
-                      layout="fill"
-                      objectFit="cover"
-                      objectPosition="center 25%"
+                      fill={true}
+                      style={{
+                        objectFit: "cover",
+                        objectPosition: "center 25%",
+                      }}
                     />
                   </div>
                 </div>

@@ -25,7 +25,7 @@ export default function Home() {
               src="zapraszamy.jpg"
               alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz uśmiechnięte i siedzące przy stole w kancelarii. Zapraszają do współpracy."
               style={{ objectFit: "cover", objectPosition: "center 80%" }}
-              layout="fill"
+              fill={true}
             />
           </div>
           {/* image for mobile */}
@@ -34,7 +34,7 @@ export default function Home() {
               src="zapraszamy_mobile.jpg"
               alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. Zapraszają do współpracy."
               style={{ objectFit: "cover", objectPosition: "65% 10%" }}
-              layout="fill"
+              fill={true}
             />
           </div>
           <p
@@ -99,7 +99,7 @@ export default function Home() {
             <Image
               src="team.jpg"
               alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. W tle godło Polski"
-              layout="fill"
+              fill={true}
               style={{ objectFit: "cover", objectPosition: "center 20%" }}
             />
           </div>
@@ -108,7 +108,7 @@ export default function Home() {
             <Image
               src="team.jpg"
               alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. W tle godło Polski"
-              layout="fill"
+              fill={true}
               style={{ objectFit: "cover", objectPosition: "center 80%" }}
             />
           </div>

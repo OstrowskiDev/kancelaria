@@ -21,7 +21,7 @@ export function HeaderMain() {
               <div className="header-logo-container w-48 sm:w-52 xl:w-72 my-4 mx-5">
                 <LogoJudytaCiesielska />
               </div>
-              <div className="header-fullname-container min-w-[250px] relative  lg:static top-2 left-2 lg:min-w-[200px]">
+              <div className="header-fullname-container min-w-[250px] relative  lg:static top-2 left-6 lg:min-w-[200px]">
                 <h2 className="header-fullname font-semibold text-2xl xl:text-3xl text-secondary-200">
                   Adwokat <br></br> Judyta Ciesielska
                 </h2>

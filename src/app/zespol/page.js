@@ -26,9 +26,11 @@ export default function Zespol() {
                 <Image
                   src={`${member.image}`}
                   alt={`${member.name}, ${member.title}`}
-                  layout="fill"
-                  objectFit="cover"
-                  objectPosition="center 25%"
+                  fill={true}
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "center 25%",
+                  }}
                 />
               </div>
             </div>
