@@ -9,8 +9,8 @@ import {
 const containerStyle = {
   width: "756px",
   height: "396px",
-  "border-top": "2px solid #CCB083",
-  "border-bottom": "1px solid #2C334C",
+  borderTop: "2px solid #CCB083",
+  borderBottom: "1px solid #2C334C",
 }
 
 const center = {

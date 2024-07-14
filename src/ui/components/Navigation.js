@@ -1,48 +1,27 @@
 "use client"
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import MenuIco from "../icons/MenuIco"
+import { NavLinksDesktop } from "./NavLinksDesktop"
 
-export function Navigation() {
-  const path = usePathname()
-
-  function isActive(href) {
-    return path === href
-  }
-  function changeActiveClass(href) {
-    return `${
-      isActive(href)
-        ? "text-secondary-200 border-b-2 border-secondary-200"
-        : "text-white hover:border-b-2 hover:border-white"
-    }`
+export function Navigation({ setIsMenuVisible }) {
+  function onClick() {
+    setIsMenuVisible((prev) => !prev)
   }
 
   return (
-    <div className="navbar-anchors">
-      <Link
-        className={`navbar-anchor ${changeActiveClass("/zespol")}`}
-        href="/zespol"
+    <div className="navbar-responsive-container">
+      {/* mobile */}
+      <div
+        className="navar-menu-container sm:hidden w-6 h-6 hover:cursor-pointer hover:scale-y-110 ease-in-out duration-300"
+        onClick={onClick}
       >
-        ZESPÓŁ
-      </Link>
-      <Link
-        className={`navbar-anchor ${changeActiveClass("/zakres-uslug")}`}
-        href="/zakres-uslug"
-      >
-        ZAKRES USŁUG
-      </Link>
-      <Link
-        className={`navbar-anchor ${changeActiveClass("/publikacje")}`}
-        href="/publikacje"
-      >
-        PUBLIKACJE
-      </Link>
-      <Link
-        className={`navbar-anchor ${changeActiveClass("/kontakt")}`}
-        href="/kontakt"
-      >
-        KONTAKT
-      </Link>
+        <MenuIco />
+      </div>
+
+      {/* desktop */}
+      <div className="navbar-anchors-container below-sm:hidden">
+        <NavLinksDesktop />
+      </div>
     </div>
   )
 }

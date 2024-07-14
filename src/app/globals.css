@@ -13,6 +13,7 @@
 /* fonts */
 
 .navbar-anchor,
+.navbar-anchor-mobile,
 .accept-rodo-text {
   font-family: var(--font-roboto);
 }
@@ -44,6 +45,24 @@ body {
 
 .navbar-anchor {
   @apply mx-2 font-bold;
+}
+
+.navbar-anchor-mobile {
+  @apply relative flex items-center h-full py-1 pl-10 border-b border-primary-800 hover:bg-primary-600 active:bg-primary-500 font-bold ;
+}
+
+.navigation-menu-container {
+  width: 100%;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease;
+}
+
+.navigation-menu-container.menu-visible {
+  transform: translateY(0);
+}
+
+.navbar-container.menu-visible {
+  border-bottom: 2px solid #E6C693;
 }
 
 .separator {
