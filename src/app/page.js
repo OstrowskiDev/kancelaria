@@ -104,12 +104,12 @@ export default function Home() {
             />
           </div>
           {/* image for mobile */}
-          <div className="team-image-mobile sm:hidden relative w-full h-[70vw] mt-1 border border-secondary-200 shrink-0">
+          <div className="team-image-mobile sm:hidden relative w-full h-[120vw] mt-1 border border-secondary-200 shrink-0">
             <Image
               src="team.jpg"
               alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. W tle godło Polski"
               fill={true}
-              style={{ objectFit: "cover", objectPosition: "center 80%" }}
+              style={{ objectFit: "cover", objectPosition: "center 50%" }}
             />
           </div>
         </div>
