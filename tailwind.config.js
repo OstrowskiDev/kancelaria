@@ -47,6 +47,8 @@ module.exports = {
         "0.4rem": "0.4rem",
       },
       screens: {
+        "below-400": { max: "399px" },
+        "above-400": { min: "400px" },
         "below-560": { max: "559px" },
         "above-560": { min: "560px" },
         "below-sm": { max: "639px" },

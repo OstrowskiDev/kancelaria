@@ -161,7 +161,7 @@ export default function ContactForm({ formData, setFormData }) {
   return (
     <form
       onSubmit={onSubmit}
-      className="contact-from-container flex flex-col min-w-[240px] w-full max-w-[760px] px-2 above-560:px-6 mt-8 mb-4 mx-auto"
+      className="contact-from-container flex flex-col min-w-[240px] w-full max-w-[320px] above-400:max-w-[760px] px-2 above-400:px-6 mt-8 mb-4 mx-auto"
     >
       <h2 className="contact-form-label p-1 mb-1 uppercase tracking-wide text-white font-semibold text-xl below-sm:text-center">
         {"formularz kontaktowy"}
@@ -304,18 +304,19 @@ export default function ContactForm({ formData, setFormData }) {
           </div>
 
           {/* reCAPTCHA */}
-          <div className="reCAPTCHA-container below-sm:mt-4 below-sm:ml-auto">
+          <div className="reCAPTCHA-container below-sm:mt-4">
             <ReCAPTCHA
               sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
               onChange={onReCAPTCHAChange}
               ref={recaptchaRef}
+              theme="light"
             />
           </div>
         </div>
       </div>
 
       <button
-        className="contact-button w-[160px] h-[38px] mt-3 ml-auto px-6 py-1 text-secondary-200 uppercase font-semibold border border-secondary-200 rounded-lg bg-primary-600 hover:bg-primary-500 hover:border-2"
+        className="contact-button w-full sm:w-[180px] h-[38px] px-6 py-1  sm:ml-auto mt-4 text-secondary-200 uppercase font-semibold border border-secondary-200 rounded-lg bg-primary-600 hover:bg-primary-500 hover:border-2"
         type="submit"
       >
         Wyślij
