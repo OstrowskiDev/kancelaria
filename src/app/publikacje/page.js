@@ -14,7 +14,7 @@ export default function Publikacje() {
   return (
     <>
       <Header title="Publikacje" />
-      <div className="articles-container max-w-[900px] w-full mt-6 mb-10 mx-auto">
+      <div className="articles-container max-w-[900px] px-3 w-full mt-6 mb-10 mx-auto">
         {articles.map((article, index) => {
           const modifiedContent = article.content.replace(/<br\s*\/?>/gi, " ")
           return (
@@ -29,27 +29,25 @@ export default function Publikacje() {
                 </h3>
               </div>
               <div className="article-container flex flex-row">
-                <div className="article-author-container">
-                  <div className="article-photo relative w-[240px] h-[240px] border border-secondary-200 shrink-0">
-                    <Image
-                      src={authorAvatar(article.author)}
-                      alt={`article author: ${article.author}`}
-                      fill={true}
-                      style={{
-                        objectFit: "cover",
-                        objectPosition: "center 25%",
-                      }}
-                    />
-                  </div>
+                <div className="article-photo below-560:hidden relative w-[240px] h-[240px] border border-secondary-200 shrink-0">
+                  <Image
+                    src={authorAvatar(article.author)}
+                    alt={`article author: ${article.author}`}
+                    fill={true}
+                    style={{
+                      objectFit: "cover",
+                      objectPosition: "center 25%",
+                    }}
+                  />
                 </div>
 
-                <div className="content-and-link-container flex flex-col">
+                <div className="content-and-link-container flex flex-col pr-3">
                   <p
-                    className="article-content h-[217px] ml-10 text-justify"
+                    className="article-content h-[217px] above-560:ml-10 text-justify"
                     dangerouslySetInnerHTML={{ __html: modifiedContent }}
                   ></p>
                   <Link
-                    className="article-link ml-10 mr-2 mt-[2px] flex flex-row items-center"
+                    className="article-link ml-1 above-560:ml-10 mr-2 mt-[2px] flex flex-row items-center"
                     href="/kontakt"
                   >
                     <p

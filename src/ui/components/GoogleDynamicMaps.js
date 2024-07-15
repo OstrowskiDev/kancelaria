@@ -7,7 +7,9 @@ import {
 } from "@react-google-maps/api"
 
 const containerStyle = {
-  width: "756px",
+  width: "100%",
+  maxWidth: "756px",
+  minWidth: "300px",
   height: "396px",
   borderTop: "2px solid #CCB083",
   borderBottom: "1px solid #2C334C",

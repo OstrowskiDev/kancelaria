@@ -44,7 +44,7 @@ export function HeaderMain() {
           </div>
         </div>
         <h1
-          className="header-label-main absolute w-full lg:static bottom-4 lg:mt-4 uppercase font-semibold lg:font-bold text-secondary-200 text-xl lg:text-2xl xl:text-2rem leading-loose xl:leading-2.5rem tracking-0.4rem sm:tracking-0.8rem lg:tracking-1.5rem xl:tracking-2rem below-sm:text-center"
+          className="header-label-main absolute w-full lg:static bottom-4 lg:mt-4 uppercase font-semibold lg:font-bold text-secondary-200 text-xl lg:text-2xl xl:text-2rem leading-loose xl:leading-2.5rem tracking-0.4rem sm:tracking-0.8rem lg:tracking-1.5rem xl:tracking-2rem text-center"
           style={{
             wordSpacing: "1.5rem",
           }}

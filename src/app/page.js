@@ -13,7 +13,7 @@ export default function Home() {
       />
 
       {/* introduction */}
-      <div className="introduction-container max-w-[900px] px-6 mt-8 mb-16 mx-auto">
+      <div className="introduction-container max-w-[900px] px-3 mt-8 mb-16 mx-auto">
         <h2 className="introduction-title relative top-3 uppercase text-primary-900 below-sm:text-center font-semibold text-2xl">
           {home.introduction.title}
         </h2>

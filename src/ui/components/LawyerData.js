@@ -3,10 +3,8 @@ import PhoneIco from "@/ui/icons/PhoneIco"
 
 export default function LawyerData({ name, email, phone }) {
   return (
-    <div className="contact-adwokat-data flex flex-col">
-      <h3 className="contact-name w-64 box-border font-semibold text-2xl">
-        {name}
-      </h3>
+    <div className="contact-adwokat-data flex flex-col my-4">
+      <h3 className="contact-name box-border font-semibold text-2xl">{name}</h3>
       {/* <div className="separator"></div> */}
       <h4 className="contact-title uppercase font-semibold text-sm">Adwokat</h4>
 

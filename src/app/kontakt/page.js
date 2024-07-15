@@ -26,13 +26,13 @@ export default function Kontakt() {
         style={{ minHeight: "calc(100vh - 380px)" }}
       >
         {/* contact data */}
-        <div className="contact-container max-w-[760px] mx-auto mt-8 mb-16">
+        <div className="contact-container max-w-[760px] px-3 mx-auto mt-8 mb-16">
           <KontaktData />
         </div>
 
         {/* google maps */}
-        <div className="google-maps-container w-[760px] my-24 mx-auto">
-          <h2 className="google-maps-label mb-2 uppercase font-semibold text-xl">
+        <div className="google-maps-container w-full max-w-[760px] min-w-[296px] px-3 my-24 mx-auto">
+          <h2 className="google-maps-label mb-2 uppercase font-semibold text-xl below-sm:text-center">
             lokalizacja kancelarii
           </h2>
           <GoogleDynamicMaps />

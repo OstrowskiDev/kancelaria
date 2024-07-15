@@ -161,9 +161,9 @@ export default function ContactForm({ formData, setFormData }) {
   return (
     <form
       onSubmit={onSubmit}
-      className="contact-from-container flex flex-col min-w-[240px] w-full max-w-[760px] mt-8 mb-4 mx-auto"
+      className="contact-from-container flex flex-col min-w-[240px] w-full max-w-[760px] px-2 above-560:px-6 mt-8 mb-4 mx-auto"
     >
-      <h2 className="contact-form-label p-1 mb-1 uppercase tracking-wide text-white font-semibold text-xl">
+      <h2 className="contact-form-label p-1 mb-1 uppercase tracking-wide text-white font-semibold text-xl below-sm:text-center">
         {"formularz kontaktowy"}
       </h2>
 
@@ -268,15 +268,15 @@ export default function ContactForm({ formData, setFormData }) {
         </div>
 
         {/* checkboxes */}
-        <div className="contact-checkboxes-container flex flex-row justify-between mt-2">
+        <div className="contact-checkboxes-container flex flex-col sm:flex-row justify-between mt-2">
           {/* rodo */}
-          <div className="rodo-checkbox-container grow flex flex-col mr-4">
+          <div className="rodo-checkbox-container grow flex flex-col sm:mr-4">
             <div
               className={`contact-accept-rodo flex flex-row items-center h-[76px] p-2  bg-white border-2 rounded-[4px] ${printAcceptRodoError && "invalid-field"}`}
             >
               <Checkmark setFormData={setFormData} formData={formData} />
               <label
-                className="accept-rodo-text max-w-[260px] ml-3 text-sm text-primary-800 leading-tight"
+                className="accept-rodo-text sm:max-w-[260px] below-sm:mr-2 ml-3 text-sm text-primary-800 leading-tight"
                 htmlFor="acceptRodo"
               >
                 {`Akceptuję `}
@@ -304,11 +304,13 @@ export default function ContactForm({ formData, setFormData }) {
           </div>
 
           {/* reCAPTCHA */}
-          <ReCAPTCHA
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-            onChange={onReCAPTCHAChange}
-            ref={recaptchaRef}
-          />
+          <div className="reCAPTCHA-container below-sm:mt-4 below-sm:ml-auto">
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              onChange={onReCAPTCHAChange}
+              ref={recaptchaRef}
+            />
+          </div>
         </div>
       </div>
 
