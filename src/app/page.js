@@ -1,10 +1,19 @@
+"use client"
+
 import { HeaderMain } from "@/ui/components/HeaderMain"
 import { home } from "@/mock-data/home"
 import Link from "next/link"
 import EnterIco from "@/ui/icons/EnterIco"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 export default function Home() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   return (
     <div className="home-main-container">
       {/* header */}
@@ -13,7 +22,9 @@ export default function Home() {
       />
 
       {/* introduction */}
-      <div className="introduction-container max-w-[900px] px-3 mt-8 mb-16 mx-auto">
+      <div
+        className={`introduction-container fade-in-1000 ${isVisible && "make-visible"} max-w-[900px] px-3 mt-8 mb-16 mx-auto`}
+      >
         <h2 className="introduction-title relative top-3 uppercase text-primary-900 below-sm:text-center font-semibold text-2xl">
           {home.introduction.title}
         </h2>

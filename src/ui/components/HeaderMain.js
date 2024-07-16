@@ -1,10 +1,19 @@
+"use client"
+
 import LogoJudytaCiesielska from "../icons/LogoJudytaCiesielska"
 import LogoKatarzynaMarkiewicz from "../icons/LogoKatarzynaMarkiewicz"
+import { useEffect, useState } from "react"
 
 export function HeaderMain() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   return (
     <div
-      className="header-background-image relative flex justify-center items-center bg-primary-600"
+      className={`header-background-image fade-in-500 ${isVisible && "make-visible"} relative flex justify-center items-center bg-primary-600`}
       style={{
         backgroundImage: `url("header02small.jpg")`,
         backgroundSize: "cover",

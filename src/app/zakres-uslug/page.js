@@ -1,13 +1,24 @@
+"use client"
+
 import Link from "next/link"
 import { services } from "@/mock-data/services"
 import { Header } from "@/ui/components/Header"
 import EnterIco from "@/ui/icons/EnterIco"
+import { useEffect, useState } from "react"
 
 export default function ZakresUslug() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   return (
     <>
       <Header title="Zakres usług" />
-      <div className="services max-w-[900px] px-3 mx-auto my-14">
+      <div
+        className={`services fade-in-1000 ${isVisible && "make-visible"}  max-w-[900px] px-3 mx-auto my-14`}
+      >
         <div className="services-list grid grid-cols-1 above-560:grid-cols-2 gap-10">
           {services.map((service, index) => {
             return (

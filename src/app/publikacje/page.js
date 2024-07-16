@@ -1,10 +1,19 @@
+"use client"
+
 import { Header } from "@/ui/components/Header"
 import { articles } from "@/mock-data/articles"
 import Link from "next/link"
 import EnterIco from "@/ui/icons/EnterIco"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 export default function Publikacje() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   function authorAvatar(author) {
     return author === "Judyta Ciesielska"
       ? "awatar_j_ciesielska.jpg"
@@ -14,7 +23,9 @@ export default function Publikacje() {
   return (
     <>
       <Header title="Publikacje" />
-      <div className="articles-container max-w-[900px] px-3 w-full mt-6 mb-10 mx-auto">
+      <div
+        className={`articles-container fade-in-1000 ${isVisible && "make-visible"} max-w-[900px] px-3 w-full mt-6 mb-10 mx-auto`}
+      >
         {articles.map((article, index) => {
           const modifiedContent = article.content.replace(/<br\s*\/?>/gi, " ")
           return (

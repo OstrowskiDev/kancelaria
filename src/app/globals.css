@@ -97,7 +97,7 @@ body {
 }
 
 .fade-in-1000 {
-  animation: fadeInDelayed 1.2s linear;
+  animation: fadeInDelayed 1s linear;
 }
 
 .fade-in-500 {
