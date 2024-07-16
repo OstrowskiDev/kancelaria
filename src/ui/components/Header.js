@@ -1,7 +1,17 @@
+"use client"
+
+import { useEffect, useState } from "react"
+
 export function Header({ title }) {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   return (
     <div
-      className="header flex justify-center items-center h-[240px] bg-primary-600"
+      className={`header fade-in-500 ${isVisible && "make-visible"} flex justify-center items-center h-[240px] bg-primary-600`}
       style={{
         backgroundImage: 'url("header02small.jpg")',
         backgroundSize: "cover",

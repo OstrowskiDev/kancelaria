@@ -81,7 +81,7 @@ body {
   text-overflow: ellipsis;
 }
 
-/* kontakt form */
+/* contact form validation */
 .invalid-field {
   border-color: red;
 }
@@ -89,6 +89,26 @@ body {
 .valid-field {
   border-color: green;
 }
+
+/* change opacity on load */
+@keyframes fadeInDelayed {
+  0%, 50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-in-1000 {
+  animation: fadeInDelayed 1.2s linear;
+}
+
+.fade-in-500 {
+  opacity: 0;
+  transition: opacity 0.5s linear;
+}
+
+.make-visible {
+  opacity: 1;
+}
+
 
 /* checkmark */
 .checkmark-container {

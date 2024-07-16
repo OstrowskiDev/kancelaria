@@ -1,12 +1,23 @@
+"use client"
+
 import { Header } from "@/ui/components/Header"
 import { team } from "@/mock-data/team"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 export default function Zespol() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   return (
     <>
       <Header title="Zespół" />
-      <div className="team-container max-w-[900px] w-full px-3 mt-12 mb-10 mx-auto">
+      <div
+        className={`team-container fade-in-1000 ${isVisible && "make-visible"} max-w-[900px] w-full px-3 mt-12 mb-10 mx-auto`}
+      >
         {team.map((member, index) => (
           <div className="team-member-container my-4" key={index}>
             <div className="team-member-header">
