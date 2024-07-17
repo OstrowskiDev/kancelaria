@@ -60,7 +60,12 @@ export default function GoogleDynamicMaps() {
         styles: [
           {
             featureType: "poi",
-            stylers: [{ visibility: "off" }],
+            stylers: [{ visibility: "on" }],
+          },
+          {
+            featureType: "poi",
+            elementType: "labels",
+            stylers: [{ visibility: "off" }], // Hides labels to reduce interaction cues
           },
         ],
       }}
