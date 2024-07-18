@@ -36,6 +36,12 @@ export default function GoogleDynamicMaps() {
 
   const onLoad = useCallback(function callback(map) {
     setMap(map)
+
+    map.addListener("click", function (event) {
+      if (event.placeId) {
+        event.stop()
+      }
+    })
   }, [])
 
   const onUnmount = useCallback(function callback(map) {
@@ -61,11 +67,6 @@ export default function GoogleDynamicMaps() {
           {
             featureType: "poi",
             stylers: [{ visibility: "on" }],
-          },
-          {
-            featureType: "poi",
-            elementType: "labels",
-            stylers: [{ visibility: "off" }], // Hides labels to reduce interaction cues
           },
         ],
       }}
