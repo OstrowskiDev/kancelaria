@@ -5,6 +5,7 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api"
+import Image from "next/image"
 
 const containerStyle = {
   width: "100%",
@@ -36,7 +37,7 @@ export default function GoogleDynamicMaps() {
 
   const onLoad = useCallback(function callback(map) {
     setMap(map)
-
+    //prevent the default info window from opening when clicking on the POI
     map.addListener("click", function (event) {
       if (event.placeId) {
         event.stop()
@@ -81,11 +82,23 @@ export default function GoogleDynamicMaps() {
           position={businessLocation}
           onCloseClick={() => setIsInfoWindowOpen(false)}
         >
-          <div>
+          <div className="kancelaria-poi-container w-[320px] h-[160px]">
             <p className="uppercase font-semibold">Kancelaria Adwokacka</p>
+            <div className="image-container relative w-48 h-32">
+              <Image
+                src="zapraszamy.jpg"
+                alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. Zapraszają do współpracy."
+                // src="kancelaria.jpg"
+                // alt="Wnętrze kancelarii. Ciepły brąz mebli, połączony z bielą ścian i zielenią roślin."
+                style={{ objectFit: "cover", objectPosition: "65% 10%" }}
+                fill={true}
+              />
+            </div>
+
             <p>Adwokat Judyta Ciesielska</p>
             <p>Adwokat Katarzyna Markiewicz</p>
-            <p className="italic">ul. Franciszkańska 1/1, 62-200 Gniezno</p>
+            <p className="italic">ul. Franciszkańska 1/1,</p>
+            <p className="italic">62-200 Gniezno</p>
           </div>
         </InfoWindow>
       )}
