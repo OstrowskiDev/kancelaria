@@ -11,7 +11,7 @@ const containerStyle = {
   width: "100%",
   maxWidth: "756px",
   minWidth: "300px",
-  height: "396px",
+  height: "496px",
   borderTop: "2px solid #CCB083",
   borderBottom: "1px solid #2C334C",
 }
@@ -82,17 +82,16 @@ export default function GoogleDynamicMaps() {
           position={businessLocation}
           onCloseClick={() => setIsInfoWindowOpen(false)}
         >
-          <div className="kancelaria-poi-container w-[320px] h-[160px]">
-            <p className="uppercase font-semibold">Kancelaria Adwokacka</p>
-            <div className="image-container relative w-48 h-32">
-              <Image
+          <div className="kancelaria-poi-container w-[280px] h-[160px]">
+            <p className="uppercase font-semibold">Kancelarie Adwokackie</p>
+            <div className="image-container relative w-[200px] h-32">
+              {/* <Image
                 src="zapraszamy.jpg"
                 alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. Zapraszają do współpracy."
-                // src="kancelaria.jpg"
-                // alt="Wnętrze kancelarii. Ciepły brąz mebli, połączony z bielą ścian i zielenią roślin."
+
                 style={{ objectFit: "cover", objectPosition: "65% 10%" }}
                 fill={true}
-              />
+              /> */}
             </div>
 
             <p>Adwokat Judyta Ciesielska</p>
