@@ -82,17 +82,17 @@ export default function GoogleDynamicMaps() {
           position={businessLocation}
           onCloseClick={() => setIsInfoWindowOpen(false)}
         >
-          <div className="kancelaria-poi-container w-[280px] h-[160px]">
+          <div className="kancelaria-poi-container ">
             <p className="uppercase font-semibold">Kancelarie Adwokackie</p>
-            <div className="image-container relative w-[200px] h-32">
-              {/* <Image
+            {/* <div className="image-container relative w-[200px] h-32"> */}
+            {/* <Image
                 src="zapraszamy.jpg"
                 alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. Zapraszają do współpracy."
 
                 style={{ objectFit: "cover", objectPosition: "65% 10%" }}
                 fill={true}
               /> */}
-            </div>
+            {/* </div> */}
 
             <p>Adwokat Judyta Ciesielska</p>
             <p>Adwokat Katarzyna Markiewicz</p>
