@@ -39,3 +39,6 @@ next-env.d.ts
 
 #Secret TodList:
 secretTodoList.txt
+
+#Firebase cache:
+hosting.b3v0.cache
