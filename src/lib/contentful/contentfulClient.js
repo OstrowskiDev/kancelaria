@@ -6,6 +6,3 @@ const client = createClient({
 })
 
 export default client
-
-// import client from "@/server/contentfulClient"
-// const res = await client.getEntries({ content_type: 'service'})
