@@ -1,15 +1,15 @@
 const allDataQuery = `
 query {
-  homeIntroductionCollection {
+  homeIntroductionCollection(limit: 1) {
     items {
       title
       content
     }
   }
-  homeServicesListCollection {
+  homeServicesListCollection(limit: 1) {
     items {
       title
-      servicesCollection(limit: 100) {
+      servicesCollection(limit: 12) {
         items {
 					... on Service {
             title
@@ -19,10 +19,25 @@ query {
       }
     }
   }
-  homeTeamCollection {
+  homeTeamCollection(limit: 1) {
     items {
       title
       content
+    }
+  }
+  membersListCollection(limit: 2) {
+    items {
+      title
+      membersCollection {
+        items {
+          ... on Member {
+            name
+            title
+            description
+            image 
+          }
+        }      
+      }
     }
   }
 }

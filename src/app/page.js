@@ -19,7 +19,9 @@ export default async function Home() {
       },
       team: { ...fetchedData.homeTeamCollection.items[0] },
     },
-    team: {},
+    team: {
+      ...fetchedData.membersListCollection.items[0].membersCollection.items,
+    },
     services: {},
     articles: {},
     rodo: {},
