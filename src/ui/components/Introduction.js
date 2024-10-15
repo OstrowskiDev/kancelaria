@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 
-export function Introduction({ home }) {
+export function Introduction({ introductionData }) {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export function Introduction({ home }) {
       className={`introduction-container fade-in-1000 ${isVisible && "make-visible"} max-w-[900px] px-3 mt-8 mb-16 mx-auto`}
     >
       <h2 className="introduction-title relative top-3 uppercase text-primary-900 below-sm:text-center font-semibold text-2xl">
-        {home.introduction.title}
+        {introductionData?.title}
       </h2>
       <div className="separator"></div>
       <div className="introduction-content flex flex-col">
@@ -38,7 +38,7 @@ export function Introduction({ home }) {
         </div>
         <p
           className="introduction-text mt-4 sm:columns-2 sm:gap-5 text-primary-700 text-justify"
-          dangerouslySetInnerHTML={{ __html: home.introduction.content }}
+          dangerouslySetInnerHTML={{ __html: introductionData?.content }}
         ></p>
       </div>
     </div>

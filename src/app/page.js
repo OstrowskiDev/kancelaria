@@ -1,16 +1,29 @@
 import { HeaderMain } from "@/ui/components/HeaderMain"
-import { home } from "@/mock-data/home"
 import Link from "next/link"
 import EnterIco from "@/ui/icons/EnterIco"
 import Image from "next/image"
 import { Introduction } from "@/ui/components/Introduction"
 
-import { fetchHomeIntroduction } from "@/lib/contentful/graphglSdk"
-
-// import client from "@/lib/contentful/contentfulClient"
+import { fetchContentfulData } from "@/lib/contentful/graphqlSdk"
 
 export default async function Home() {
-  const homeIntroduction = await fetchHomeIntroduction()
+  const fetchedData = await fetchContentfulData()
+  const contentful = {
+    home: {
+      introduction: { ...fetchedData.homeIntroductionCollection.items[0] },
+      services: {
+        title: fetchedData.homeServicesListCollection.items[0].title,
+        servicesList:
+          fetchedData.homeServicesListCollection.items[0].servicesCollection
+            .items,
+      },
+      team: { ...fetchedData.homeTeamCollection.items[0] },
+    },
+    team: {},
+    services: {},
+    articles: {},
+    rodo: {},
+  }
 
   return (
     <div className="home-main-container">
@@ -19,22 +32,17 @@ export default async function Home() {
         title={`"Nazwa i logo kancelarii. Zdjęcie w tle do zmiany na lepsze. Wysokość zdjęcia/tła zawsze dopasowana tak by zajmować 100% wysokości ekranu urządzenia."`}
       />
 
-      <div>
-        <h1>{homeIntroduction.title}</h1>
-        <p>{homeIntroduction.content}</p>
-      </div>
-
       {/* introduction */}
-      <Introduction home={home} />
+      <Introduction introductionData={contentful.home.introduction} />
 
       {/* services */}
       <div className="services-wrapper px-6 pt-8 pb-16 w-full bg-primary-700">
         <div className="services-container max-w-[900px] mx-auto">
           <h2 className="services-title my-6 uppercase below-sm:text-center text-white font-semibold text-2xl">
-            {home.services.title}
+            {contentful.home.services.title}
           </h2>
           <div className="services-list grid grid-cols-1 above-560:grid-cols-2 above-850:grid-cols-3 gap-8 sm:px-5">
-            {home.services.services.map((service, index) => {
+            {contentful.home.services.servicesList.map((service, index) => {
               return (
                 <div className="service-main-container mx-auto" key={index}>
                   <h3 className="service-title my-2 uppercase text-xl font-semibold text-white text-center">
@@ -45,9 +53,7 @@ export default async function Home() {
                     key={index}
                   >
                     <p className="service-description text-white m-4">
-                      Zwięzły opis usługi lub ikona. Erat aliquyam lorem et
-                      nonumy sadipscing. Sanctus takimata sea dolore labore. Eos
-                      kasd sadipscing clita vero diam.
+                      {service.description}
                     </p>
                     <Link
                       className="service-link absolute left-4 bottom-3 flex flex-row items-center "
@@ -69,13 +75,13 @@ export default async function Home() {
       {/* about team */}
       <div className="team-container max-w-[900px] px-6 mt-8 mb-16 mx-auto">
         <h2 className="team-title relative top-3 uppercase below-sm:text-center text-primary-900 font-semibold text-2xl">
-          {home.team.title}
+          {contentful.home.team.title}
         </h2>
         <div className="separator"></div>
         <div className="team-content flex flex-col-reverse sm:flex-row">
           <p
             className="team-text below-sm:mt-4 text-primary-700 text-justify sm:mr-8"
-            dangerouslySetInnerHTML={{ __html: home.team.content }}
+            dangerouslySetInnerHTML={{ __html: contentful.home.team.content }}
           ></p>
           {/* image for desktop */}
           <div className="team-image-desktop relative below-sm:hidden w-1/2 h-[600px] mt-1 border border-secondary-200 shrink-0">
