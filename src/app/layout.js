@@ -2,6 +2,8 @@ import { Roboto, Playfair_Display } from "next/font/google"
 import "./globals.css"
 import Footer from "@/ui/components/Footer"
 import { Navbar } from "@/ui/components/Navbar"
+import { fetchContentfulData } from "@/lib/contentful/graphqlSdk"
+import { MainContent } from "@/ui/components/MainContent"
 
 export const metadata = {
   title: "Kancelaria Adwokacka",
@@ -22,7 +24,27 @@ const playfairDisplay = Playfair_Display({
   display: "swap",
 })
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const fetchedData = await fetchContentfulData()
+  const contentful = {
+    home: {
+      introduction: { ...fetchedData.homeIntroductionCollection.items[0] },
+      services: {
+        title: fetchedData.homeServicesListCollection.items[0].title,
+        servicesList:
+          fetchedData.homeServicesListCollection.items[0].servicesCollection
+            .items,
+      },
+      team: { ...fetchedData.homeTeamCollection.items[0] },
+    },
+    team: {
+      ...fetchedData.membersListCollection.items[0].membersCollection.items,
+    },
+    services: {},
+    articles: {},
+    rodo: {},
+  }
+
   return (
     <>
       <html
@@ -31,10 +53,8 @@ export default function RootLayout({ children }) {
       >
         <body className="main-container bg-background-main">
           <Navbar />
-          <main className="main-content flex flex-col">
-            {children}
-            <Footer />
-          </main>
+          <MainContent contentful={contentful} children={children} />
+          <Footer />
         </body>
       </html>
     </>

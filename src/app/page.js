@@ -1,31 +1,14 @@
+"use client"
+
 import { HeaderMain } from "@/ui/components/HeaderMain"
 import Link from "next/link"
 import EnterIco from "@/ui/icons/EnterIco"
 import Image from "next/image"
 import { Introduction } from "@/ui/components/Introduction"
+import { useDataContext } from "@/lib/context"
 
-import { fetchContentfulData } from "@/lib/contentful/graphqlSdk"
-
-export default async function Home() {
-  const fetchedData = await fetchContentfulData()
-  const contentful = {
-    home: {
-      introduction: { ...fetchedData.homeIntroductionCollection.items[0] },
-      services: {
-        title: fetchedData.homeServicesListCollection.items[0].title,
-        servicesList:
-          fetchedData.homeServicesListCollection.items[0].servicesCollection
-            .items,
-      },
-      team: { ...fetchedData.homeTeamCollection.items[0] },
-    },
-    team: {
-      ...fetchedData.membersListCollection.items[0].membersCollection.items,
-    },
-    services: {},
-    articles: {},
-    rodo: {},
-  }
+export default function Home() {
+  const { contentful } = useDataContext()
 
   return (
     <div className="home-main-container">
