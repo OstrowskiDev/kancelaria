@@ -11,7 +11,7 @@ query {
       title
       servicesCollection(limit: 12) {
         items {
-					... on Service {
+					... on HomeService {
             title
             description
           }
