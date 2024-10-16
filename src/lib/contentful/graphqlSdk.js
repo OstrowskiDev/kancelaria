@@ -35,6 +35,8 @@ query {
             title
             description
             image 
+            email
+            phone
           }
         }      
       }
@@ -49,6 +51,20 @@ query {
             title
             subtitle
             description
+          }
+        }
+      }
+    }
+  }
+  articlesListCollection(limit: 1) {
+    items {
+      title
+      articlesCollection(limit: 40) {
+        items {
+          ... on Article {
+            title
+            author
+            content
           }
         }
       }

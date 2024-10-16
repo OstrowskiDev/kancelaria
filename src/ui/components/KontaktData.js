@@ -1,7 +1,9 @@
-import AddressIco from "@/ui/icons/AddressIco"
 import LawyerData from "./LawyerData"
+import { useDataContext } from "@/lib/context"
 
 export default function KontaktData() {
+  const { contentful } = useDataContext()
+
   return (
     <>
       <div className="contact-data-header my-20">
@@ -10,16 +12,16 @@ export default function KontaktData() {
         </h2>
         <div className="separator relative bottom-2"></div>
         <div className="contact-data-container flex flex-col above-560:flex-row above-560:justify-around min-w-[240px] below-560:ml-[10vw]">
-          <LawyerData
-            name="Katarzyna Markiewicz"
-            email="contact@example.com"
-            phone="721-149-188"
-          />
-          <LawyerData
-            name="Judyta Ciesielska"
-            email="contact@example.com"
-            phone="721-058-958"
-          />
+          {contentful.team.map((lawyer, index) => {
+            return (
+              <LawyerData
+                key={index}
+                name={lawyer.name}
+                email={lawyer.email}
+                phone={lawyer.phone}
+              />
+            )
+          })}
         </div>
       </div>
     </>
