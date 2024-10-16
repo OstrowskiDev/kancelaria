@@ -40,6 +40,20 @@ query {
       }
     }
   }
+  servicesListCollection(limit: 1) {
+    items {
+      title
+      servicesCollection(limit: 12) {
+        items {
+          ... on Service {
+            title
+            subtitle
+            description
+          }
+        }
+      }
+    }
+  }
 }
 `
 
@@ -55,7 +69,7 @@ async function fetchGraphQL(query, preview = false) {
             ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
             : process.env.CONTENTFUL_CDA_ACCESS_TOKEN
         }`,
-        "Cache-Control": "max-age=60", // Cache for 60 seconds or change to "no-store" for development that needs super fast updates
+        "Cache-Control": "no-store", // Cache for 60 seconds "max-age=60" or change to "no-store" for development that needs super fast updates
       },
       body: JSON.stringify({ query }),
       next: { tags: [] },

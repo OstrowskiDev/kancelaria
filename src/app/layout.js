@@ -38,7 +38,8 @@ export default async function RootLayout({ children }) {
       team: { ...fetchedData.homeTeamCollection.items[0] },
     },
     team: fetchedData.membersListCollection.items[0].membersCollection.items,
-    services: {},
+    services:
+      fetchedData.servicesListCollection.items[0]?.servicesCollection?.items,
     articles: {},
     rodo: {},
   }

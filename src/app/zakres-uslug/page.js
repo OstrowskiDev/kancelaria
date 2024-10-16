@@ -1,13 +1,14 @@
 "use client"
 
 import Link from "next/link"
-import { services } from "@/mock-data/services"
 import { Header } from "@/ui/components/Header"
 import EnterIco from "@/ui/icons/EnterIco"
 import { useEffect, useState } from "react"
+import { useDataContext } from "@/lib/context"
 
 export default function ZakresUslug() {
   const [isVisible, setIsVisible] = useState(false)
+  const { contentful } = useDataContext()
 
   useEffect(() => {
     setIsVisible(true)
@@ -20,7 +21,7 @@ export default function ZakresUslug() {
         className={`services fade-in-1000 ${isVisible && "make-visible"}  max-w-[900px] px-3 mx-auto my-14`}
       >
         <div className="services-list grid grid-cols-1 above-560:grid-cols-2 gap-10">
-          {services.map((service, index) => {
+          {contentful.services.map((service, index) => {
             return (
               <div className="service-container pr-2" key={index}>
                 <h2 className="service-title relative top-3 text-2xl font-semibold text-primary-900">
@@ -46,8 +47,4 @@ export default function ZakresUslug() {
       </div>
     </>
   )
-}
-
-{
-  /*  */
 }
