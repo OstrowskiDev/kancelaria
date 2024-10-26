@@ -1,3 +1,5 @@
+import { revalidateTag } from "next/cache"
+
 const allDataQuery = `
 query {
   homeIntroductionCollection(limit: 1) {
@@ -72,33 +74,32 @@ query {
   }
 }
 `
-
-async function fetchGraphQL(query, preview = false) {
+async function fetchGraphQL(query) {
   const response = await fetch(
-    `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
+    `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${
-          preview
-            ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
-            : process.env.CONTENTFUL_CDA_ACCESS_TOKEN
-        }`,
+        Authorization: `Bearer ${process.env.CONTENTFUL_CDA_ACCESS_TOKEN}`,
         "Cache-Control": "no-store", // Cache for 60 seconds "max-age=60" or change to "no-store" for development that needs super fast updates
       },
       body: JSON.stringify({ query }),
-      next: { tags: [] },
+      // Revalidate Next.js cache, 1 for dev, 3600 for prod if business client wants to rebuild page once per day, 60 if business client wants to rebuild page on each Contentful change
+      next: { revalidate: 1 },
     },
   )
   const data = await response.json()
   // Log the response for debugging
-  // console.log("GraphQL Response:", data)
+  console.log("GraphQL Response:", data)
+  console.log(
+    data.data.servicesListCollection.items[0].servicesCollection.items,
+  )
   return data
 }
 
-export async function fetchContentfulData(preview = false) {
-  const response = await fetchGraphQL(allDataQuery, preview)
+export async function fetchContentfulData() {
+  const response = await fetchGraphQL(allDataQuery)
   if (!response.data) {
     throw new Error("Failed to fetch content")
   }
