@@ -42,3 +42,6 @@ secretTodoList.txt
 
 #Firebase cache:
 hosting.b3v0.cache
+
+#local rebuild.bat file
+rebuild.bat

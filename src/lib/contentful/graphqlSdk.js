@@ -1,5 +1,3 @@
-import { revalidateTag } from "next/cache"
-
 const allDataQuery = `
 query {
   homeIntroductionCollection(limit: 1) {
@@ -82,19 +80,11 @@ async function fetchGraphQL(query) {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${process.env.CONTENTFUL_CDA_ACCESS_TOKEN}`,
-        "Cache-Control": "no-store", // Cache for 60 seconds "max-age=60" or change to "no-store" for development that needs super fast updates
       },
       body: JSON.stringify({ query }),
-      // Revalidate Next.js cache, 1 for dev, 3600 for prod if business client wants to rebuild page once per day, 60 if business client wants to rebuild page on each Contentful change
-      next: { revalidate: 1 },
     },
   )
   const data = await response.json()
-  // Log the response for debugging
-  console.log("GraphQL Response:", data)
-  console.log(
-    data.data.servicesListCollection.items[0].servicesCollection.items,
-  )
   return data
 }
 
