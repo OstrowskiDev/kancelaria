@@ -1,0 +1,18 @@
+ 
+Stopping development server... 
+SUCCESS: The process "node.exe" with PID 16900 has been terminated.
+SUCCESS: The process "node.exe" with PID 14548 has been terminated.
+SUCCESS: The process "node.exe" with PID 15452 has been terminated.
+Installing dependencies... 
+
+up to date, audited 224 packages in 797ms
+
+50 packages are looking for funding
+  run `npm fund` for details
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
