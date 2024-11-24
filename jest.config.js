@@ -7,6 +7,13 @@ const createJestConfig = nextJest({
 })
 
 const config = {
+  // handle next.js image imports and CSS imports:
+  moduleNameMapper: {
+    "^.+\\.(css|less|scss|sass)$": "<rootDir>/__mocks__/styleMock.js",
+    "^.+\\.(jpg|jpeg|png|gif|webp|avif|svg)$":
+      "<rootDir>/__mocks__/fileMock.js",
+    "^next/image$": "<rootDir>/__mocks__/next/image.js",
+  },
   coverageProvider: "v8",
   testEnvironment: "jsdom",
   // Add more setup options before each test is run
