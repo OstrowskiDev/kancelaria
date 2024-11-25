@@ -17,4 +17,10 @@ describe("Home Page", () => {
   it("should render the services section", () => {
     cy.get(".home-main-container .services-container").should("exist")
   })
+
+  it("should navigate to the zespol page when the zespol link is clicked", () => {
+    cy.get('a[href="/zespol"].navbar-anchor').click()
+    cy.url().should("include", "/zespol")
+    cy.get(".team-container").should("exist")
+  })
 })
