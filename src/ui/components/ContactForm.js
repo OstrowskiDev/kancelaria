@@ -161,7 +161,7 @@ export default function ContactForm({ formData, setFormData }) {
   return (
     <form
       onSubmit={onSubmit}
-      className="contact-from-container flex flex-col min-w-[240px] w-full max-w-[320px] above-400:max-w-[760px] px-2 above-400:px-6 mt-8 mb-4 mx-auto"
+      className="contact-form-container flex flex-col min-w-[240px] w-full max-w-[320px] above-400:max-w-[760px] px-2 above-400:px-6 mt-8 mb-4 mx-auto"
     >
       <h2 className="contact-form-label p-1 mb-1 uppercase tracking-wide text-white font-semibold text-xl below-sm:text-center">
         {"formularz kontaktowy"}
