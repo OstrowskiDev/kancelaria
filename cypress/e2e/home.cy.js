@@ -47,4 +47,9 @@ describe("Home Page Navigation", () => {
     cy.get('a[href="/kontakt"].navbar-anchor').click()
     cy.url().should("include", "/kontakt")
   })
+
+  it("should navigate to the services page when the 'wiecej informacji' link is clicked", () => {
+    cy.get('a[href="/zakres-uslug"].service-link').first().click()
+    cy.url().should("include", "/zakres-uslug")
+  })
 })
