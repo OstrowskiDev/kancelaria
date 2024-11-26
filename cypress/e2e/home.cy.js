@@ -1,4 +1,4 @@
-describe("Home Page", () => {
+describe("Home Page Content", () => {
   beforeEach(() => {
     cy.visit("/")
   })
@@ -18,9 +18,33 @@ describe("Home Page", () => {
     cy.get(".home-main-container .services-container").should("exist")
   })
 
+  it("should render the team section", () => {
+    cy.get(".home-main-container .team-container").should("exist")
+  })
+})
+
+describe("Home Page Navigation", () => {
+  beforeEach(() => {
+    cy.visit("/")
+  })
+
   it("should navigate to the zespol page when the zespol link is clicked", () => {
     cy.get('a[href="/zespol"].navbar-anchor').click()
     cy.url().should("include", "/zespol")
-    cy.get(".team-container").should("exist")
+  })
+
+  it("should navigate to the zakres-uslug page when the zakres-uslug link is clicked", () => {
+    cy.get('a[href="/zakres-uslug"].navbar-anchor').click()
+    cy.url().should("include", "/zakres-uslug")
+  })
+
+  it("should navigate to the publikacje page when the publikacje link is clicked", () => {
+    cy.get('a[href="/publikacje"].navbar-anchor').click()
+    cy.url().should("include", "/publikacje")
+  })
+
+  it("should navigate to the kontakt page when the kontakt link is clicked", () => {
+    cy.get('a[href="/kontakt"].navbar-anchor').click()
+    cy.url().should("include", "/kontakt")
   })
 })
