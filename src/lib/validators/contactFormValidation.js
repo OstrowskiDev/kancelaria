@@ -22,12 +22,12 @@ export function validateForm(formData) {
     name,
     jsEnabled,
   } = formData
-  const validationResults = { ...validationObject }
+
+  //crating deep copy of validationObject
+  const validationResults = JSON.parse(JSON.stringify(validationObject))
 
   function addMessage(field, messageText) {
-    if (!validationResults[field].message.includes(messageText)) {
-      validationResults[field].message.push(messageText)
-    }
+    validationResults[field].message.push(messageText)
   }
 
   function removeMessage(field, messageText) {

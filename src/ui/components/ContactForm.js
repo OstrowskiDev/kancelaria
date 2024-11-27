@@ -2,7 +2,6 @@ import ReCAPTCHA from "react-google-recaptcha"
 import RulesIco from "@/ui/icons/RulesIco"
 import Link from "next/link"
 import Checkmark from "@/ui/components/Checkmark"
-import validator from "validator"
 import React, { useEffect, useState } from "react"
 import {
   validationObject,
@@ -12,7 +11,7 @@ import {
 export default function ContactForm({ formData, setFormData }) {
   const [token, setToken] = useState("") // store reCAPTCHA response token
   const [submitAttempted, setSubmitAttempted] = useState(false)
-  const [fieldValidity, setFieldValidity] = useState(validationObject)
+  const [fieldValidity, setFieldValidity] = useState({ ...validationObject })
   // need validation for reCAPTCHA v2
 
   useEffect(() => {
