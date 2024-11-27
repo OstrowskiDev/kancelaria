@@ -25,7 +25,9 @@ export function validateForm(formData) {
   const validationResults = { ...validationObject }
 
   function addMessage(field, messageText) {
-    validationResults[field].message.push(messageText)
+    if (!validationResults[field].message.includes(messageText)) {
+      validationResults[field].message.push(messageText)
+    }
   }
 
   function removeMessage(field, messageText) {
