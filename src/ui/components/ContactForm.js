@@ -73,13 +73,11 @@ export default function ContactForm({ formData, setFormData }) {
         console.log("Form submitted successfully")
         // Reset form or show success message
       } else {
-        console.log("Form submission failed:", result.errors)
+        console.log("Form submission failed:", result.error)
       }
     } catch (error) {
       console.error("Error submitting form:", error)
     }
-
-    console.log("Form submitted with reCAPTCHA token: ", token)
 
     // reset the reCAPTCHA after form submission
     recaptchaRef.current.reset()
