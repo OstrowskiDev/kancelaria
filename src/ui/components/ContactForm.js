@@ -58,9 +58,7 @@ export default function ContactForm({ formData, setFormData }) {
       return
     }
 
-    //!!!! add submission logic here
     try {
-      console.log("Form data: ", formData)
       const response = await fetch("/api/contact-form", {
         method: "POST",
         headers: {
@@ -72,7 +70,7 @@ export default function ContactForm({ formData, setFormData }) {
       const result = await response.json()
 
       if (response.ok) {
-        console.log("Form submitted successfully:", result.message)
+        console.log("Form submitted successfully")
         // Reset form or show success message
       } else {
         console.log("Form submission failed:", result.errors)

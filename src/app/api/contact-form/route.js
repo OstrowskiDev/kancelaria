@@ -2,29 +2,9 @@ import { validateForm } from "@/lib/validators/contactFormValidation"
 import { NextResponse } from "next/server"
 
 export async function POST(req) {
-  const body = await req.json()
-  console.log("Request body: ", body)
-
-  const { fullName, email, phone, topic, content, acceptRodo, jsEnabled } = body
-
-  const formData = {
-    fullName,
-    email,
-    phone,
-    topic,
-    content,
-    acceptRodo,
-    jsEnabled,
-  }
-
-  console.log("Form data: ", formData)
-
+  const formData = await req.json()
   const validationResults = validateForm(formData)
-
-  console.log("Validation results: ", validationResults)
-
   const errors = []
-
   for (const field in validationResults) {
     if (validationResults[field].message.length > 0) {
       errors.push(...validationResults[field].message)
