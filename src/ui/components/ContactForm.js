@@ -41,7 +41,7 @@ export default function ContactForm({ formData, setFormData }) {
     setFormData({ ...formData, [event.target.name]: event.target.value })
   }
 
-  function onSubmit(event) {
+  async function onSubmit(event) {
     event.preventDefault()
     setSubmitAttempted(true)
     const botDetected =
@@ -57,7 +57,30 @@ export default function ContactForm({ formData, setFormData }) {
       )
       return
     }
+
     //!!!! add submission logic here
+    try {
+      console.log("Form data: ", formData)
+      const response = await fetch("/api/contact-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (response.ok) {
+        console.log("Form submitted successfully:", result.message)
+        // Reset form or show success message
+      } else {
+        console.log("Form submission failed:", result.errors)
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error)
+    }
+
     console.log("Form submitted with reCAPTCHA token: ", token)
 
     // reset the reCAPTCHA after form submission
