@@ -94,7 +94,7 @@ export function validateForm(formData) {
 
   validateField("jsEnabled", () => jsEnabled !== "yes", "bot detected")
 
-  validateField("name", () => name !== "", "bot detected")
+  validateField("name", () => name !== undefined, "bot detected")
 
   return validationResults
 }
