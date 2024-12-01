@@ -13,7 +13,6 @@ const rateLimiterByEndpoint = new RateLimiterMemory({
 })
 
 export async function applyRateLimit(req) {
-  console.log("Applying rate limit")
   try {
     let ip
     if (process.env.NODE_ENV === "development") {
