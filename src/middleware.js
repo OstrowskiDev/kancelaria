@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { applyRateLimit } from "@/lib/rateLimit"
+import { applyRateLimit } from "@/lib/middleware/rateLimit"
 
 export async function middleware(req) {
   try {
