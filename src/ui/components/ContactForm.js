@@ -53,7 +53,7 @@ export default function ContactForm({ formData, setFormData }) {
     if (botDetected) return
     if (hasValidationErrors) {
       console.log(
-        "form submission failed, change required fields according to error messages",
+        "Form submission failed, change required fields according to error messages",
       )
       return
     }
@@ -73,14 +73,18 @@ export default function ContactForm({ formData, setFormData }) {
         console.log("Form submitted successfully")
         // Reset form or show success message
       } else {
-        console.log("Form submission failed:", result.error)
+        console.log("Form submission failed.")
+        // !!! delete before production:
+        console.log("Form submission failed:", result)
       }
     } catch (error) {
+      console.error("Error submitting form.")
+      // !!! delete before production:
       console.error("Error submitting form:", error)
     }
 
-    // reset the reCAPTCHA after form submission
-    recaptchaRef.current.reset()
+    // !!! reset the reCAPTCHA after form submission
+    // recaptchaRef.current.reset()
   }
 
   const recaptchaRef = React.createRef()
