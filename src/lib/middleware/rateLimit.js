@@ -2,7 +2,7 @@ import { RateLimiterMemory } from "rate-limiter-flexible"
 
 // catch by IP address, max 10 requests per 10 minutes
 const rateLimiterByIp = new RateLimiterMemory({
-  points: 2, // 2 points for testing, later will set to 10
+  points: 600, // 2 points for testing, later will set to 10
   duration: 10 * 60, // Per 10 minutes
 })
 
@@ -28,6 +28,6 @@ export async function applyRateLimit(req) {
     await rateLimiterByIp.consume(ip)
     await rateLimiterByEndpoint.consume(req.url)
   } catch (rejRes) {
-    throw new Error("Too many requests")
+    throw new Error("Rate limit exceeded")
   }
 }
