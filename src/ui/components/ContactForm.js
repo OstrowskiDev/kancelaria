@@ -1,8 +1,9 @@
+import React, { useEffect, useState } from "react"
+import Link from "next/link"
+import axios from "axios"
 import ReCAPTCHA from "react-google-recaptcha"
 import RulesIco from "@/ui/icons/RulesIco"
-import Link from "next/link"
 import Checkmark from "@/ui/components/Checkmark"
-import React, { useEffect, useState } from "react"
 import {
   validationObject,
   validateForm,
@@ -59,23 +60,19 @@ export default function ContactForm({ formData, setFormData }) {
     }
 
     try {
-      const response = await fetch("/api/contact-form", {
-        method: "POST",
+      const response = await axios.post("/api/contact-form", formData, {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
       })
 
-      const result = await response.json()
-
-      if (response.ok) {
+      if (response.status === 200) {
         console.log("Form submitted successfully")
         // Reset form or show success message
       } else {
         console.log("Form submission failed.")
         // !!! delete before production:
-        console.log("Form submission failed:", result)
+        console.log("Form submission failed:", response.data)
       }
     } catch (error) {
       console.error("Error submitting form.")
