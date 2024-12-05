@@ -1,3 +1,5 @@
+import axios from "axios"
+
 const allDataQuery = `
 query {
   homeIntroductionCollection(limit: 1) {
@@ -73,25 +75,25 @@ query {
 }
 `
 async function fetchGraphQL(query) {
-  const response = await fetch(
-    `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.CONTENTFUL_CDA_ACCESS_TOKEN}`,
+  try {
+    const response = await axios.post(
+      `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
+      { query },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.CONTENTFUL_CDA_ACCESS_TOKEN}`,
+        },
       },
-      body: JSON.stringify({ query }),
-    },
-  )
-  const data = await response.json()
-  return data
+    )
+    return response.data.data
+  } catch (error) {
+    console.error("Error fetching GraphQL data:", error)
+    throw new Error("Error fetching GraphQL data:")
+  }
 }
 
 export async function fetchContentfulData() {
   const response = await fetchGraphQL(allDataQuery)
-  if (!response.data) {
-    throw new Error("Failed to fetch content")
-  }
-  return response.data
+  return response
 }
