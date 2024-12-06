@@ -12,14 +12,19 @@ export default function ZakresUslug() {
   const [isVisible, setIsVisible] = useState(false)
   const { contentful } = useDataContext()
 
-  if (contentful?.services === undefined) {
-    router.push("/strona-niedostepna")
-    return null
-  }
+  useEffect(() => {
+    if (contentful?.services === undefined) {
+      router.push("/strona-niedostepna")
+    }
+  }, [])
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
+
+  if (contentful?.services === undefined) {
+    return null
+  }
 
   return (
     <>

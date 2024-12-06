@@ -11,14 +11,19 @@ export default function Zespol() {
   const [isVisible, setIsVisible] = useState(false)
   const { contentful } = useDataContext()
 
-  if (contentful?.team === undefined) {
-    router.push("/strona-niedostepna")
-    return null
-  }
+  useEffect(() => {
+    if (contentful?.team === undefined) {
+      router.push("/strona-niedostepna")
+    }
+  }, [])
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
+
+  if (contentful?.team === undefined) {
+    return null
+  }
 
   return (
     <>

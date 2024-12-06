@@ -22,14 +22,19 @@ export default function Kontakt() {
   const { contentful } = useDataContext()
   const [isVisible, setIsVisible] = useState(false)
 
-  if (contentful?.team === undefined) {
-    router.push("/strona-niedostepna")
-    return null
-  }
+  useEffect(() => {
+    if (contentful?.team === undefined) {
+      router.push("/strona-niedostepna")
+    }
+  }, [])
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
+
+  if (contentful?.team === undefined) {
+    return null
+  }
 
   return (
     <>

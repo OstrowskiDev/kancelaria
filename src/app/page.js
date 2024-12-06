@@ -7,13 +7,19 @@ import EnterIco from "@/ui/icons/EnterIco"
 import Image from "next/image"
 import { Introduction } from "@/ui/components/Introduction"
 import { useDataContext } from "@/lib/context"
+import { useEffect } from "react"
 
 export default function Home() {
   const router = useRouter()
   const { contentful } = useDataContext()
 
+  useEffect(() => {
+    if (contentful?.home === undefined) {
+      router.push("/strona-niedostepna")
+    }
+  }, [])
+
   if (contentful?.home === undefined) {
-    router.push("/strona-niedostepna")
     return null
   }
 

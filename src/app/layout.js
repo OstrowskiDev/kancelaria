@@ -17,6 +17,7 @@ const roboto = Roboto({
   variable: "--font-roboto",
   display: "swap",
 })
+
 const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -26,24 +27,7 @@ const playfairDisplay = Playfair_Display({
 
 export default async function RootLayout({ children }) {
   const fetchedData = await fetchContentfulData()
-  const contentful = {
-    home: {
-      introduction: { ...fetchedData.homeIntroductionCollection.items[0] },
-      services: {
-        title: fetchedData.homeServicesListCollection.items[0].title,
-        servicesList:
-          fetchedData.homeServicesListCollection.items[0].servicesCollection
-            .items,
-      },
-      team: { ...fetchedData.homeTeamCollection.items[0] },
-    },
-    team: fetchedData.membersListCollection.items[0].membersCollection.items,
-    services:
-      fetchedData.servicesListCollection.items[0].servicesCollection.items,
-    articles:
-      fetchedData.articlesListCollection.items[0]?.articlesCollection.items,
-    rodo: {},
-  }
+  const contentful = fetchedData
 
   return (
     <>

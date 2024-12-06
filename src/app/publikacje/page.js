@@ -13,10 +13,11 @@ export default function Publikacje() {
   const [isVisible, setIsVisible] = useState(false)
   const { contentful } = useDataContext()
 
-  if (contentful?.articles === undefined) {
-    router.push("/strona-niedostepna")
-    return null
-  }
+  useEffect(() => {
+    if (contentful?.articles === undefined) {
+      router.push("/strona-niedostepna")
+    }
+  }, [])
 
   useEffect(() => {
     setIsVisible(true)
@@ -26,6 +27,10 @@ export default function Publikacje() {
     return author === "Judyta Ciesielska"
       ? "awatar_j_ciesielska.jpg"
       : "awatar_k_markiewicz.jpg"
+  }
+
+  if (contentful?.articles === undefined) {
+    return null
   }
 
   return (

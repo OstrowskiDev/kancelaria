@@ -74,6 +74,7 @@ query {
   }
 }
 `
+
 async function fetchGraphQL(query) {
   try {
     const response = await axios.post(
@@ -94,6 +95,29 @@ async function fetchGraphQL(query) {
 }
 
 export async function fetchContentfulData() {
-  const response = await fetchGraphQL(allDataQuery)
-  return response
+  const fetchedData = await fetchGraphQL(allDataQuery)
+
+  if (!fetchedData) {
+    return null
+  }
+
+  const contentfulData = {
+    home: {
+      introduction: { ...fetchedData.homeIntroductionCollection.items[0] },
+      services: {
+        title: fetchedData.homeServicesListCollection.items[0].title,
+        servicesList:
+          fetchedData.homeServicesListCollection.items[0].servicesCollection
+            .items,
+      },
+      team: { ...fetchedData.homeTeamCollection.items[0] },
+    },
+    team: fetchedData.membersListCollection.items[0].membersCollection.items,
+    services:
+      fetchedData.servicesListCollection.items[0].servicesCollection.items,
+    articles:
+      fetchedData.articlesListCollection.items[0]?.articlesCollection.items,
+    rodo: {},
+  }
+  return contentfulData
 }
