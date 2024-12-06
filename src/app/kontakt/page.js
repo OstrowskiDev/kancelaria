@@ -2,11 +2,11 @@
 
 import { Header } from "@/ui/components/Header"
 import KontaktData from "@/ui/components/KontaktData"
-
 import React, { useEffect, useState } from "react"
-
+import { useRouter } from "next/navigation"
 import GoogleDynamicMaps from "@/ui/components/GoogleDynamicMaps"
 import ContactForm from "@/ui/components/ContactForm"
+import { useDataContext } from "@/lib/context"
 
 export default function Kontakt() {
   const [formData, setFormData] = useState({
@@ -18,7 +18,14 @@ export default function Kontakt() {
     name: "",
   })
 
+  const router = useRouter()
+  const { contentful } = useDataContext()
   const [isVisible, setIsVisible] = useState(false)
+
+  if (contentful?.team === undefined) {
+    router.push("/strona-niedostepna")
+    return null
+  }
 
   useEffect(() => {
     setIsVisible(true)
@@ -35,7 +42,7 @@ export default function Kontakt() {
         <div
           className={`contact-container  max-w-[760px] px-3 mx-auto mt-8 mb-16`}
         >
-          <KontaktData />
+          <KontaktData contentful={contentful} />
         </div>
 
         {/* google maps */}

@@ -4,11 +4,18 @@ import Link from "next/link"
 import { Header } from "@/ui/components/Header"
 import EnterIco from "@/ui/icons/EnterIco"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 import { useDataContext } from "@/lib/context"
 
 export default function ZakresUslug() {
+  const router = useRouter()
   const [isVisible, setIsVisible] = useState(false)
   const { contentful } = useDataContext()
+
+  if (contentful?.services === undefined) {
+    router.push("/strona-niedostepna")
+    return null
+  }
 
   useEffect(() => {
     setIsVisible(true)

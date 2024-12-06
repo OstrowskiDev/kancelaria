@@ -89,7 +89,7 @@ async function fetchGraphQL(query) {
     return response.data.data
   } catch (error) {
     console.error("Error fetching GraphQL data:", error)
-    throw new Error("Error fetching GraphQL data:")
+    return null
   }
 }
 

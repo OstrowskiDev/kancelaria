@@ -1,9 +1,6 @@
 import LawyerData from "./LawyerData"
-import { useDataContext } from "@/lib/context"
 
-export default function KontaktData() {
-  const { contentful } = useDataContext()
-
+export default function KontaktData({ contentful }) {
   return (
     <>
       <div className="contact-data-header my-20">

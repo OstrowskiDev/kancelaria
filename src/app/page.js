@@ -1,6 +1,7 @@
 "use client"
 
 import { HeaderMain } from "@/ui/components/HeaderMain"
+import { useRouter } from "next/navigation"
 import Link from "next/link"
 import EnterIco from "@/ui/icons/EnterIco"
 import Image from "next/image"
@@ -8,7 +9,13 @@ import { Introduction } from "@/ui/components/Introduction"
 import { useDataContext } from "@/lib/context"
 
 export default function Home() {
+  const router = useRouter()
   const { contentful } = useDataContext()
+
+  if (contentful?.home === undefined) {
+    router.push("/strona-niedostepna")
+    return null
+  }
 
   return (
     <div className="home-main-container">

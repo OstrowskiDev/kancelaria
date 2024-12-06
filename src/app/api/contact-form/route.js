@@ -18,6 +18,7 @@ export async function POST(req) {
     )
   }
 
+  //!!! delete below line before production:
   console.log("Form submitted with data: ", formData)
   return NextResponse.json(
     { message: "Form submitted successfully" },

@@ -3,11 +3,18 @@
 import { Header } from "@/ui/components/Header"
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 import { useDataContext } from "@/lib/context"
 
 export default function Zespol() {
+  const router = useRouter()
   const [isVisible, setIsVisible] = useState(false)
   const { contentful } = useDataContext()
+
+  if (contentful?.team === undefined) {
+    router.push("/strona-niedostepna")
+    return null
+  }
 
   useEffect(() => {
     setIsVisible(true)

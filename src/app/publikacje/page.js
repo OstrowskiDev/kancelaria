@@ -5,11 +5,18 @@ import Link from "next/link"
 import EnterIco from "@/ui/icons/EnterIco"
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 import { useDataContext } from "@/lib/context"
 
 export default function Publikacje() {
+  const router = useRouter()
   const [isVisible, setIsVisible] = useState(false)
   const { contentful } = useDataContext()
+
+  if (contentful?.articles === undefined) {
+    router.push("/strona-niedostepna")
+    return null
+  }
 
   useEffect(() => {
     setIsVisible(true)
