@@ -4,7 +4,7 @@ export const validationObject = {
   fullName: { message: [] },
   email: { message: [] },
   phone: { message: [] },
-  topic: { message: [] },
+  subject: { message: [] },
   content: { message: [] },
   acceptRodo: { message: [] },
   jsEnabled: { message: [] },
@@ -16,7 +16,7 @@ export function validateForm(formData) {
     fullName,
     email,
     phone,
-    topic,
+    subject,
     content,
     acceptRodo,
     name,
@@ -45,7 +45,7 @@ export function validateForm(formData) {
     }
   }
 
-  const fieldRequired = ["fullName", "email", "phone", "topic", "content"]
+  const fieldRequired = ["fullName", "email", "phone", "subject", "content"]
   for (const field of fieldRequired) {
     validateField(field, () => !formData[field], `Pole wymagane.`)
   }
@@ -75,8 +75,8 @@ export function validateForm(formData) {
   )
 
   validateField(
-    "topic",
-    () => !validator.isLength(topic, { min: 10, max: 100 }),
+    "subject",
+    () => !validator.isLength(subject, { min: 10, max: 100 }),
     "Temat musi zawierać od 10 do 100 znaków.",
   )
 

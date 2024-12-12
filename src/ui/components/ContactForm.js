@@ -30,7 +30,7 @@ export default function ContactForm({ formData, setFormData }) {
   const printFullNameError = printError("fullName")
   const printEmailError = printError("email")
   const printPhoneError = printError("phone")
-  const printTopicError = printError("topic")
+  const printSubjectError = printError("subject")
   const printContentError = printError("content")
   const printAcceptRodoError = printError("acceptRodo")
 
@@ -134,20 +134,20 @@ export default function ContactForm({ formData, setFormData }) {
             </label>
           </div>
 
-          {/* topic */}
-          <div className="contact-topic-container flex flex-col">
+          {/* subject */}
+          <div className="contact-subject-container flex flex-col">
             <input
-              className={`contact-input-topic p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md ${printTopicError && "invalid-field"}`}
+              className={`contact-input-subject p-[6px] border-2 border-primary-800 focus:border-secondary-200 focus:outline-none rounded-md ${printSubjectError && "invalid-field"}`}
               type="text"
-              name="topic"
+              name="subject"
               placeholder="Temat *"
               onChange={onInputChange}
             />
             <label
-              className="contact-label-topic text-xs text-red-600"
-              htmlFor="topic"
+              className="contact-label-subject text-xs text-red-600"
+              htmlFor="subject"
             >
-              {printTopicError && fieldValidity.topic.message.join(" ")}
+              {printSubjectError && fieldValidity.subject.message.join(" ")}
             </label>
           </div>
 

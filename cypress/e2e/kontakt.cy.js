@@ -32,7 +32,7 @@ describe("Kontakt Page Content", () => {
       "contain.text",
       "Pole wymagane. Proszę wprowadzić prawidłowy adres email.",
     )
-    cy.get(".contact-label-topic").should(
+    cy.get(".contact-label-subject").should(
       "contain.text",
       "Pole wymagane. Temat musi zawierać od 10 do 100 znaków.",
     )

@@ -1,6 +1,7 @@
 import { validateForm } from "@/lib/validators/contactFormValidation"
 import { NextResponse } from "next/server"
 import sendgrid from "@sendgrid/mail"
+import { buildEmailBody } from "@/lib/email_template/client_inquiry"
 
 sendgrid.setApiKey(process.env.SENDGRID_API_KEY)
 
@@ -22,15 +23,15 @@ export async function POST(req) {
   }
 
   // send email via SendGrid
-  const title = "Testing SendGrid service"
-  const message = "This is a test message"
+  const htmlContent = buildEmailBody(formData)
+  console.log("htmlContent:", htmlContent)
 
   await sendgrid
     .send({
       to: process.env.SENDGRID_EMAIL_FROM,
       from: process.env.SENDGRID_EMAIL_FROM,
-      subject: `${title}`,
-      html: `<p><strong>Test Message:</strong> ${message}</p>`,
+      subject: `Kancelarie JCKM: ${formData.subject}`,
+      html: htmlContent,
     })
     .then(() => {
       console.log("Email sent successfully")
@@ -47,8 +48,4 @@ export async function POST(req) {
     { message: "Form submitted successfully" },
     { status: 200 },
   )
-}
-
-export async function GET() {
-  return NextResponse.json({ message: "Method Not Allowed" }, { status: 405 })
 }

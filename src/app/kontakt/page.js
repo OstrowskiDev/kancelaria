@@ -13,7 +13,7 @@ export default function Kontakt() {
     fullName: "",
     email: "",
     phone: "",
-    topic: "",
+    subject: "",
     content: "",
     name: "",
   })
