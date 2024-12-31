@@ -40,12 +40,9 @@ next-env.d.ts
 #Secret TodList:
 secretTodoList.txt
 
-#Firebase cache:
-hosting.b3v0.cache
-
-#local rebuild.bat file
-rebuild.bat
-
 #ssh keys
 dokey
 dokey.pub
+
+#mocks
+__mocks__
