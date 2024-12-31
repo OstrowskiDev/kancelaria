@@ -84,7 +84,7 @@ export default function Home() {
           {/* image for desktop */}
           <div className="team-image-desktop relative below-sm:hidden w-1/2 h-[600px] mt-1 border border-secondary-200 shrink-0">
             <Image
-              src="../team.jpg"
+              src="team.jpg"
               alt="Adwokat Judyta Ciesielska i adwokat Katarzyna Markiewicz. W tle godło Polski"
               fill={true}
               style={{ objectFit: "cover", objectPosition: "center 20%" }}
