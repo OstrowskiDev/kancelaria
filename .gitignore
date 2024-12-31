@@ -45,3 +45,7 @@ hosting.b3v0.cache
 
 #local rebuild.bat file
 rebuild.bat
+
+#ssh keys
+dokey
+dokey.pub

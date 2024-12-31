@@ -43,9 +43,10 @@ export default function Zespol() {
               </h3>
             </div>
             <div className="team-member-content flex flex-col-reverse sm:flex-row">
-              <p className="team-member-description sm:mr-10 text-justify ">
-                {member.description}
-              </p>
+              <p
+                className="team-member-description sm:mr-10 text-justify "
+                dangerouslySetInnerHTML={{ __html: member?.description }}
+              ></p>
               <div className="team-member-photo relative w-full h-[120vw] sm:w-[360px] sm:h-[480px] below-sm:bottom-3 border border-secondary-200 shrink-0">
                 <Image
                   src={`${member.image}`}

@@ -1,4 +1,0 @@
-# Put this file in /etc/cron.d/ dir on Unix-based server.
-# This cron job runs the rebuild.sh script every day at 3 AM.
-
-0 3 * * * root /src/lib/shell_scripts/rebuild.sh
