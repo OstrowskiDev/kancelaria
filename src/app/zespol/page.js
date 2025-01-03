@@ -32,7 +32,7 @@ export default function Zespol() {
         className={`team-container fade-in-1000 ${isVisible && "make-visible"} max-w-[900px] w-full px-3 mt-12 mb-10 mx-auto`}
       >
         {contentful.team.map((member, index) => (
-          <div className="team-member-container my-4" key={index}>
+          <div className="team-member-container my-8" key={index}>
             <div className="team-member-header">
               <h2 className="team-member-name text-2xl font-semibold text-primary-900">
                 {member.name}
