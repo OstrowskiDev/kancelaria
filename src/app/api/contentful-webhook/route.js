@@ -7,6 +7,7 @@ export async function POST(request) {
     revalidatePath("/zakres-uslug")
     revalidatePath("/kontakt")
     revalidatePath("/publikacje")
+    revalidatePath("/polityka-prywatnosci")
     return new Response(JSON.stringify({ message: "Webhook received" }), {
       headers: { "Content-Type": "application/json" },
       status: 200,

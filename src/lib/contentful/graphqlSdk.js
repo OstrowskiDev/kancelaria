@@ -72,6 +72,12 @@ query {
       }
     }
   }
+  rodoCollection(limit: 1) {
+    items {
+      title
+      description
+    }
+  }
 }
 `
 
@@ -117,7 +123,7 @@ export async function fetchContentfulData() {
       fetchedData.servicesListCollection.items[0].servicesCollection.items,
     articles:
       fetchedData.articlesListCollection.items[0]?.articlesCollection.items,
-    rodo: {},
+    rodo: fetchedData.rodoCollection.items[0],
   }
   return contentfulData
 }
